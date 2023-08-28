@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+pedro = User.create!(username:"Pedrob", email:"pedro99@gmail.com", password:"secret")
+klevion= User.create!(username:"klevion", email:"klevion99@gmail.com", password:"secret")
+Goncalo = User.create!(username:"Goncalo", email:"Goncalo99@gmail.com", password:"secret")
+terceira = Island.create!(title: "Best island in the azores", address: "Portugal, Azores, Terceira", description: "Best Island in the Universe", price_per_night: 15, user:pedro)
+newbooking = Booking.create!(start_date:"29/08/2023", end_date:"30/08/2023", user:klevion, island:terceira)
+new_review = Review.create!(content:"Best island everrrrr", rating:5.0, booking:newbooking)
