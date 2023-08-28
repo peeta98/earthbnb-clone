@@ -5,8 +5,7 @@ class CreateBookings < ActiveRecord::Migration[7.0]
       t.references :island, null: false, foreign_key: true
       t.date :start_date
       t.date :end_date
-      t.string :status
-
+      t.string :status, default: "Pending"
       t.timestamps
     end
   end
