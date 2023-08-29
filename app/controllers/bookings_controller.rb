@@ -9,16 +9,16 @@ class BookingsController < ApplicationController
     @booking = current_user.bookings.build(booking_params)
     @booking.island = @island
     if @booking.save
-      redirect_to @booking, notice: 'Booking requested.'
+      redirect_to @island, notice: 'Booking requested.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
   def set_island
