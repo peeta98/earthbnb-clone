@@ -1,38 +1,10 @@
 <%= render 'navbar' %>
 
-<<<<<<< HEAD
 <div class="container" id="cards">
-  <div class="row">
-    <div class="col-12">
+  <div class="row justify-content-between">
       <h1>Islands List</h1>
-      <% @islands.each do |island| %>
-        <%= render partial: 'card', locals: { island: island } %>
-      <% end %>
-    </div>
-=======
-<div class="container mt-4">
-  <h1 class="mb-4">All Islands</h1>
-  <div class="row">
-    <% @islands.each do |island| %>
-      <div class="col-md-4">
-        <div class="card island-card">
-          <div class="card-body">
-            <h5 class="card-title"><%= island.title %></h5>
-            <p class="card-text"><%= island.address %></p>
-            <p class="card-text"><%= island.description %></p>
-            <p class="card-text">Price: $<%= island.price_per_night %></p>
-            <p class="card-text">
-              Rating:
-              <span class="island-rating">
-                <% island.reviews.average(:rating).to_i.times do %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-              </span>
-            </p>
-          </div>
-        </div>
-      </div>
-    <% end %>
->>>>>>> master
+        <% @islands.each do |island| %>
+          <%= render partial: 'card', locals: { island: island } %>
+        <% end %>
   </div>
 </div>
