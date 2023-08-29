@@ -29,7 +29,7 @@ class IslandsController < ApplicationController
   def update
     if @island.update(island_params)
       redirect_to island_path(@island), notice: "Island was successfully updated"
-    else 
+    else
       render :edit, status: :unprocessable_entity
     end
   end
