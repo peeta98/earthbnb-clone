@@ -1,0 +1,8 @@
+<h3>Update Island Details</h3>
+<%= form_with model: @island do |form| %>
+  <%= form.text_field :title, placeholder: "New Title" %>
+  <%= form.text_field :address, placeholder: "New Address" %>
+  <%= form.text_field :description, placeholder: "Description" %>
+  <%= form.text_field :price_per_night, placeholder: "Price per Night" %>
+  <%= form.submit  "Update Island"%>
+<% end %>

@@ -1,6 +1,6 @@
 class IslandsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_island, only: %i[show]
+  before_action :set_island, only: %i[show edit update]
 
   def index
     @islands = Island.all
@@ -20,6 +20,17 @@ class IslandsController < ApplicationController
       redirect_to island_path(@island)
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @island.update(island_params)
+      redirect_to island_path(@island), notice: "Island was successfully updated"
+    else 
+      render :edit, status: :unprocessable_entity
     end
   end
 
