@@ -3,3 +3,7 @@
 <h4><%=  @island.address%></h4>
 <p><%=  @island.description%></p>
 <p><%=  @island.price_per_night%></p>
+<%= link_to "Delete",
+  island_path(@island),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
