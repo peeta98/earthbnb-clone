@@ -1,0 +1,14 @@
+<%= render 'navbar' %>
+
+<div class="container" id="cards">
+  <div class="row">
+    <div class="col-12">
+      <h1>Islands List</h1>
+      <% @islands.each do |island| %>
+        <%= render partial: 'card', locals: { island: island } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'footer' %>
