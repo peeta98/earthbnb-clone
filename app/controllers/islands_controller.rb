@@ -1,6 +1,6 @@
 class IslandsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_island, only: %i[show edit update]
+  before_action :set_island, only: %i[show edit update destroy]
 
   def index
     @islands = Island.all
@@ -32,6 +32,11 @@ class IslandsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @island.destroy
+    redirect_to islands_path, status: :see_other
   end
 
   private
