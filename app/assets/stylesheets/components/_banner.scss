@@ -1,19 +1,22 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 298px 0;
+  padding: 300px 0;
+  height: calc(100% - 110px);
   h1 {
     margin: 0;
     color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     font-size: 50px;
     font-weight: bold;
+    margin-left: 100px;
   }
   p {
     font-size: 28px;
     color: white;
     opacity: .7;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    margin-left: 100px;
   }
 }
 
@@ -43,6 +46,7 @@
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+  margin-left: 100px;
 }
 
 .btn-islands:hover,
