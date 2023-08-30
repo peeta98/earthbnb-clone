@@ -1,21 +1,19 @@
 <h4>Welcome to your profile <%= @user.username %>!</h4>
-<h6>Username:<%= @user.username %></h6>
-<h6>Email:<%= @user.email %></h6>
+<h6>Username: <%= @user.username %></h6>
+<h6>Email: <%= @user.email %></h6>
 <h5>Your Bookings</h5>
 <% @user.islands.each do |island| %>
   <h3><%= island.title %></h3>
   <% island.bookings.each do |booking| %>
-    <p>
-     Start Date: <%= booking.start_date %><br>
-    End Date: <%= booking.end_date %><br>
-    Status: <%= booking.status %>
-    <% if booking.status == "Pending" %>
-    <%= link_to 'Accept', accept_island_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Do you want to confirm this choice?' } %>
-    <%= link_to 'Decline',  decline_island_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Do you want to confirm this choice?' } %>
-    <% end %>
-   </p>
+     <p>Client Username: <%= booking.user.username %></p>
+      Start Date: <%= booking.start_date %><br>
+      End Date: <%= booking.end_date %><br>
+      Status: <%= booking.status %>
+      <% if booking.status == "Pending" %>
+      <%= link_to 'Accept', accept_island_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Do you want to confirm this choice?' } %>
+      <%= link_to 'Decline',  decline_island_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Do you want to confirm this choice?' } %>
+      <% end %>
   <% end %>
 <% end %>
- <%= link_to 'See all Islands', islands_path   %>
-  <%= link_to 'Go to home page', root_path   %>
-
+<p><%= link_to 'See all Islands', islands_path %></p>
+<p><%= link_to 'Go to home page', root_path %></p>
