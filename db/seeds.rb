@@ -14,65 +14,164 @@ Booking.destroy_all
 Review.destroy_all
 puts "Seeds deleted!"
 
-puts "Creating seeds..."
-pedro = User.create!(username: "Peeta98", email: "pedro99@gmail.com", password: "secret") # User who owns the Island
-klevion = User.create!(username: "Klevion", email: "klevion99@gmail.com", password: "secret") # User who rents the Island
-terceira = Island.create!(title: "Terceira Island", address: "Terceira, Azores, Portugal", description: "Best Island in the Universe", price_per_night: 20000, user: pedro)
+#  ----- Seeding instances of User -----
+puts "Creating 5 users..."
+pedro = User.create!(username: "Peeta98", email: "pedro99@gmail.com", password: "secret")
+puts "User 1 created!"
+klevion = User.create!(username: "Klevion", email: "klevion99@gmail.com", password: "secret")
+puts "User 2 created!"
+ayub = User.create!(username: "Ayub", email: "ayub99@gmail.com", password: "secret")
+puts "User 3 created!"
+gonçalo = User.create!(username: "Gonçalo", email: "gonçalo99@gmail.com", password: "secret")
+puts "User 4 created!"
+kevin = User.create!(username: "Kevin", email: "kevin99@gmail.com", password: "secret")
+puts "User 5 created!"
+
+# ----- Seeding istances of Island -----
+puts "Creating 5 islands..."
+terceira = Island.create!(
+  title: "Terceira",
+  address: "Terceira, Azores, Portugal",
+  description: "Stunning little island in the middle of the vulcanic ocean.
+  Known for its natural landmarks and cultural festivals!",
+  price_per_night: 20_000,
+  user: pedro # This user is the owner of the Island!
+)
+puts "Island 1 created!"
+
+malta = Island.create!(
+  title: "Malta",
+  address: "Malta, Europe",
+  description: "Malta is famous for its beautiful architecture, scenic cliffs, breathtaking coastline and dive sites.",
+  price_per_night: 35_000,
+  user: klevion
+)
+puts "Island 2 created!"
+
+england = Island.create!(
+  title: "England",
+  address: "England, United Kingdown, Europe",
+  description: "Laced by great rivers and small streams, England is a fertile land,
+  and the generosity of its soil has supported a thriving agricultural economy for millennia",
+  price_per_night: 50_000,
+  user: ayub
+)
+puts "Island 3 created!"
+
+australia = Island.create!(
+  title: "Australia",
+  address: "Australia, Asia",
+  description: "Australia is known for many things, including swathes of tropical beaches, marine reserves,
+  aboriginal culture, cute koalas, rolling wine country, and lush rainforests.",
+  price_per_night: 45_000,
+  user: kevin
+)
+puts "Island 4 created!"
+
+hawaii = Island.create!(
+  title: "Australia",
+  address: "Hawaii, United States, America",
+  description: "Hawaii is known for its beautiful beaches, its laid-back lifestyle,
+  and its delicious food. From traditional Hawaiian dishes like poi and laulau to modern favorites
+  like poke and Kalua pig, you are in for a treat after exploring the mountains or surfing the waves.",
+  price_per_night: 60_000,
+  user: gonçalo
+)
+puts "Island 5 created!"
+
+# ----- Attaching some photos to the Islands! -----
+puts "Attaching photos to Terceira..."
 url1 = Cloudinary::Utils.cloudinary_url("Terceira2_zvnbne")
 url2 = Cloudinary::Utils.cloudinary_url("Terceira4_v1kca1")
 url3 = Cloudinary::Utils.cloudinary_url("Terceira3_dapyar")
-url4 = Cloudinary::Utils.cloudinary_url("Terceira1_fw9goo")
 
 file = URI.open(url1)
 terceira.photos.attach(io: file, filename: "terceira.png", content_type: "image/png")
+puts "Photo 1 attached!"
 file2 = URI.open(url2)
 terceira.photos.attach(io: file2, filename: "terceira2.png", content_type: "image/png")
+puts "Photo 2 attached!"
 file3 = URI.open(url3)
 terceira.photos.attach(io: file3, filename: "terceira3.png", content_type: "image/png")
-file4 = URI.open(url4)
-terceira.photos.attach(io: file4, filename: "terceira4.png", content_type: "image/png")
+puts "Photo 3 attached!"
 terceira.save!
-puts "1st Island done"
 
-terceira2 = Island.create!(title: "Terceira Island", address: "Terceira, Azores, Portugal", description: "Best Island in the Universe", price_per_night: 20000, user: pedro)
+puts "Attaching photos to Malta..."
+url1 = Cloudinary::Utils.cloudinary_url("Malta3_ns9r8z")
+url2 = Cloudinary::Utils.cloudinary_url("Malta4_ezun5g")
+url3 = Cloudinary::Utils.cloudinary_url("Malta2_sy5yx3")
+
 file = URI.open(url1)
-terceira2.photos.attach(io: file, filename: "terceira.png", content_type: "image/png")
+malta.photos.attach(io: file, filename: "malta.jpg", content_type: "image/jpg")
+puts "Photo 1 attached!"
 file2 = URI.open(url2)
-terceira2.photos.attach(io: file2, filename: "terceira2.png", content_type: "image/png")
+malta.photos.attach(io: file2, filename: "malta2.jpg", content_type: "image/jpg")
+puts "Photo 2 attached!"
 file3 = URI.open(url3)
-terceira2.photos.attach(io: file3, filename: "terceira3.png", content_type: "image/png")
-file4 = URI.open(url4)
-terceira2.photos.attach(io: file4, filename: "terceira4.png", content_type: "image/png")
-terceira2.save!
-puts "2nd Island done"
+malta.photos.attach(io: file3, filename: "malta3.jpg", content_type: "image/jpg")
+puts "Photo 3 attached!"
+malta.save!
 
-terceira3 = Island.create!(title: "Terceira Island", address: "Terceira, Azores, Portugal", description: "Best Island in the Universe", price_per_night: 20000, user: pedro)
+puts "Attaching photos to England..."
+url1 = Cloudinary::Utils.cloudinary_url("England1_mvjkkt")
+url2 = Cloudinary::Utils.cloudinary_url("England4_vzvl0l")
+url3 = Cloudinary::Utils.cloudinary_url("England3_xlxnh4")
+
 file = URI.open(url1)
-terceira3.photos.attach(io: file, filename: "terceira.png", content_type: "image/png")
+england.photos.attach(io: file, filename: "england.jpg", content_type: "image/jpg")
+puts "Photo 1 attached!"
 file2 = URI.open(url2)
-terceira3.photos.attach(io: file2, filename: "terceira2.png", content_type: "image/png")
+england.photos.attach(io: file2, filename: "england2.jpg", content_type: "image/jpg")
+puts "Photo 2 attached!"
 file3 = URI.open(url3)
-terceira3.photos.attach(io: file3, filename: "terceira3.png", content_type: "image/png")
-file4 = URI.open(url4)
-terceira3.photos.attach(io: file4, filename: "terceira4.png", content_type: "image/png")
-terceira3.save!
-puts "3nd Island done"
+england.photos.attach(io: file3, filename: "england3.jpg", content_type: "image/jpg")
+puts "Photo 3 attached!"
+england.save!
 
-terceira4 = Island.create!(title: "Terceira Island", address: "Terceira, Azores, Portugal", description: "Best Island in the Universe", price_per_night: 20000, user: pedro)
+puts "Attaching photos to Australia..."
+url1 = Cloudinary::Utils.cloudinary_url("Australia4_kqemui")
+url2 = Cloudinary::Utils.cloudinary_url("Australia1_siknza")
+url3 = Cloudinary::Utils.cloudinary_url("Australia3_xdfl1i")
+
 file = URI.open(url1)
-terceira4.photos.attach(io: file, filename: "terceira.png", content_type: "image/png")
+australia.photos.attach(io: file, filename: "australia.jpg", content_type: "image/jpg")
+puts "Photo 1 attached!"
 file2 = URI.open(url2)
-terceira4.photos.attach(io: file2, filename: "terceira2.png", content_type: "image/png")
+australia.photos.attach(io: file2, filename: "australia2.jpg", content_type: "image/jpg")
+puts "Photo 2 attached!"
 file3 = URI.open(url3)
-terceira4.photos.attach(io: file3, filename: "terceira3.png", content_type: "image/png")
-file4 = URI.open(url4)
-terceira4.photos.attach(io: file4, filename: "terceira4.png", content_type: "image/png")
-terceira4.save!
-puts "4rd Island done"
+australia.photos.attach(io: file3, filename: "australia3.jpg", content_type: "image/jpg")
+puts "Photo 3 attached!"
+australia.save!
 
-booking = Booking.create!(start_date: "30/08/2023", end_date: "2/09/2023", user: klevion, island: terceira)
-booking2 = Booking.create!(start_date: "30/08/2023", end_date: "2/09/2023", user: klevion, island: terceira2)
-booking3 = Booking.create!(start_date: "30/08/2023", end_date: "2/09/2023", user: klevion, island: terceira3)
-booking4 = Booking.create!(start_date: "30/08/2023", end_date: "2/09/2023", user: klevion, island: terceira4)
-Review.create!(content: "Awesome island with a lot of cows!", rating: 5.0, booking:)
-puts "Seeds created!"
+puts "Attaching photos to Hawaii..."
+url1 = Cloudinary::Utils.cloudinary_url("Hawaii1_mnpawe")
+url2 = Cloudinary::Utils.cloudinary_url("Hawaii3_okazrl")
+url3 = Cloudinary::Utils.cloudinary_url("Hawaii4_g5ucf6")
+
+file = URI.open(url1)
+hawaii.photos.attach(io: file, filename: "hawaii.jpg", content_type: "image/jpg")
+puts "Photo 1 attached!"
+file2 = URI.open(url2)
+hawaii.photos.attach(io: file2, filename: "hawaii2.jpg", content_type: "image/jpg")
+puts "Photo 2 attached!"
+file3 = URI.open(url3)
+hawaii.photos.attach(io: file3, filename: "hawaii3.jpg", content_type: "image/jpg")
+puts "Photo 3 attached!"
+hawaii.save!
+
+# ----- Seeding instances of Booking -----
+puts "Creating 5 bookings..."
+# The user associated with the booking is the BUYER!
+terceira_booking = Booking.create!(start_date: "02/09/2023", end_date: "03/09/2023", user: klevion, island: terceira)
+puts "Booking 1 created!"
+malta_booking = Booking.create!(start_date: "05/09/2023", end_date: "07/09/2023", user: ayub, island: malta)
+puts "Booking 2 created!"
+england_booking = Booking.create!(start_date: "10/09/2023", end_date: "15/09/2023", user: pedro, island: england)
+puts "Booking 3 created!"
+australia_booking = Booking.create!(start_date: "23/09/2023", end_date: "26/09/2023", user: gonçalo, island: australia)
+puts "Booking 4 created!"
+hawaii_booking = Booking.create!(start_date: "30/08/2023", end_date: "2/09/2023", user: kevin, island: hawaii)
+puts "Booking 5 created!"
+
+puts "All seeds created successfully!"
