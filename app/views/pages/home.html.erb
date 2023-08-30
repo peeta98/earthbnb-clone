@@ -1,5 +1,9 @@
 <div class="global-container">
-<%= render 'navbar' %>
+<% if user_signed_in? %>
+  <%= render 'user_navbar' %>
+<% else %>
+  <%= render 'visitor_navbar' %>
+<% end %>
 <%= render 'banner' %>
 <%= render 'footer' %>
 </div>

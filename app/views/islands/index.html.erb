@@ -1,12 +1,20 @@
-<%= render 'navbar' %>
+<% if user_signed_in? %>
+  <%= render 'user_navbar' %>
+<% else %>
+  <%= render 'visitor_navbar' %>
+<% end %>
 
 <div class="container gx-0" id="cards">
   <div class="row justify-content-between gx-0">
       <h1>Islands List</h1>
-        <% @islands.each do |island| %>
+      <% @islands.each do |island| %>
+        <%= link_to island_path(island), class:"" do%>
           <%= render partial: 'card', locals: { island: island } %>
         <% end %>
+      <% end %>
   </div>
 </div>
+
+<%= link_to "Add new island", new_island_path %>
 
 <%= render partial: 'footer' %>
