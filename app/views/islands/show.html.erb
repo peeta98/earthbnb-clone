@@ -26,7 +26,6 @@
       <h3><%= @island.title %></h3>
       <p><strong>Location:</strong> <%= @island.address %></p>
       <p><strong>About:</strong> <%= @island.description %></p>
-      <p><strong>Owner:</strong> <%= @island.user.username %></p>
       <p class="card-trip-pricing"> <strong>Price:</strong> $<%= @island.price_per_night %> /night</p>
     </div>
     <%= link_to "Request Booking", new_island_booking_path(@island), class:"btn btn-primary mb-2" %>
