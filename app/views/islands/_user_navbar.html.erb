@@ -1,7 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <% logo = image_tag '/app/assets/images/logo' %>
-    <%= link_to logo, root_path, class: "navbar-brand"%>
+    <%= link_to root_path, class: "navbar-brand" do%>
+      <% image_tag 'logo.png', width: "80px" %>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="dropdown" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
