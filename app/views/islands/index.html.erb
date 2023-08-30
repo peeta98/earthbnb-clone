@@ -1,12 +1,12 @@
 <%= render 'navbar' %>
 
-<div class="container" id="cards">
-  <div class="row justify-content-between">
+<div class="container gx-0" id="cards">
+  <div class="row justify-content-between gx-0">
       <h1>Islands List</h1>
         <% @islands.each do |island| %>
           <%= render partial: 'card', locals: { island: island } %>
         <% end %>
   </div>
-</div>p
+</div>
 
 <%= render partial: 'footer' %>
