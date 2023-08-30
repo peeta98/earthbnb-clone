@@ -20,8 +20,8 @@
 <h3>Your bookings to stay in other islands</h3>
 <% @user.bookings.each do |booking| %>
   <h4><%= booking.island.title %></h4>
-  <p>Start Date: <%= booking.start_date %></p>
-  <p>End Date: <%= booking.end_date %></p>
+  <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
+  <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
   <p>Status: <%= booking.status %></p>
   <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island) %>
 <% end %>
