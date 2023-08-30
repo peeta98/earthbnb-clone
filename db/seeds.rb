@@ -23,7 +23,6 @@ url2 = Cloudinary::Utils.cloudinary_url("Terceira4_v1kca1")
 url3 = Cloudinary::Utils.cloudinary_url("Terceira3_dapyar")
 url4 = Cloudinary::Utils.cloudinary_url("Terceira1_fw9goo")
 
-puts url1
 file = URI.open(url1)
 terceira.photos.attach(io: file, filename: "terceira.png", content_type: "image/png")
 file2 = URI.open(url2)
