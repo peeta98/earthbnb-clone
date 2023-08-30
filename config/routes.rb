@@ -3,9 +3,15 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :islands do
+<<<<<<< HEAD
     resources :bookings, only: %i[ update new create] do
       member do
         patch "decline"
+=======
+    resources :bookings, only: %i[show update new create] do
+      member do
+        patch :accept
+>>>>>>> master
       end
     end
   end

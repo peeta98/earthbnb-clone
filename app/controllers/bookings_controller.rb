@@ -19,10 +19,17 @@ class BookingsController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   def decline
     @booking = Booking.find(params[:id])
     @booking.decline!
     redirect_to @booking.island, notice: 'Booking declined.'
+=======
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "Accepted"
+    redirect_to @booking.island, notice: "Booking accepted!" if @booking.save
+>>>>>>> master
   end
 
   private
