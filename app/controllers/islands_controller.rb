@@ -10,7 +10,7 @@ class IslandsController < ApplicationController
         lat: island.latitude,
         lng: island.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: { island: island }),
-        marker_html: render_to_string(partial: "marker")
+        marker_html: render_to_string(partial: "marker", locals: {island: island})
       }
     end
   end
