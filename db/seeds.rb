@@ -50,7 +50,7 @@ puts "Island 2 created!"
 
 england = Island.create!(
   title: "England",
-  address: "England, United Kingdown, Europe",
+  address: "England, United Kingdom, Europe",
   description: "Laced by great rivers and small streams, England is a fertile land,
   and the generosity of its soil has supported a thriving agricultural economy for millennia",
   price_per_night: 50_000,
@@ -69,7 +69,7 @@ australia = Island.create!(
 puts "Island 4 created!"
 
 hawaii = Island.create!(
-  title: "Australia",
+  title: "Hawaii",
   address: "Hawaii, United States, America",
   description: "Hawaii is known for its beautiful beaches, its laid-back lifestyle,
   and its delicious food. From traditional Hawaiian dishes like poi and laulau to modern favorites
