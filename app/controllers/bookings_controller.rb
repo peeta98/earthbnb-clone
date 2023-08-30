@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_island, only: %i[create new edit update accept decline]
 
+  def show
+    @booking = Booking.find(params[:id]) 
+  end
+
   def new
     @booking = Booking.new
   end
@@ -13,6 +17,12 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.decline!
+    redirect_to @booking.island, notice: 'Booking declined.'
   end
 
   private

@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :islands do
-    resources :bookings, only: %i[show update new create]
+    resources :bookings, only: %i[ update new create] do
+      member do
+        patch "decline"
+      end
+    end
   end
+  resources :bookings, only: :show
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
