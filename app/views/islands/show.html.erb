@@ -38,3 +38,16 @@
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
 <% end %>
+
+<%= link_to "Delete Island",
+  island_path(@island),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+<% @island.bookings.each do |booking| %>
+  <p><%= link_to "Edit booking", edit_island_booking_path(@island, booking) %></p>
+  <p>Starts at: <%= booking.start_date %></p>
+  <p>Ends in: <%= booking.end_date %></p>
+  <p><%= link_to "Accept booking", accept_island_booking_path(@island, booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure you want to accept this bookings?" }  %></p>
+  <p><%= booking.status %></p>
+<% end %>
+<%= link_to "Go back", islands_path %>
