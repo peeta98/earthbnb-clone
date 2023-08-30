@@ -18,13 +18,13 @@ puts "Seeds deleted!"
 puts "Creating 5 users..."
 pedro = User.create!(username: "Peeta98", email: "pedro99@gmail.com", password: "secret")
 puts "User 1 created!"
-klevion = User.create!(username: "Klevion", email: "klevion99@gmail.com", password: "secret")
+klevion = User.create!(username: "KlevionBMW", email: "klevion99@gmail.com", password: "secret")
 puts "User 2 created!"
-ayub = User.create!(username: "Ayub", email: "ayub99@gmail.com", password: "secret")
+ayub = User.create!(username: "AyubHassan", email: "ayub99@gmail.com", password: "secret")
 puts "User 3 created!"
 gonçalo = User.create!(username: "Gonçalo", email: "gonçalo99@gmail.com", password: "secret")
 puts "User 4 created!"
-kevin = User.create!(username: "Kevin", email: "kevin99@gmail.com", password: "secret")
+kevin = User.create!(username: "KevinAjax", email: "kevin99@gmail.com", password: "secret")
 puts "User 5 created!"
 
 # ----- Seeding istances of Island -----
