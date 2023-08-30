@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_island, only: %i[create new edit update accept decline]
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def new
     @booking = Booking.new
   end
@@ -23,6 +27,12 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     redirect_to island_path(@booking.island)
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.decline!
+    redirect_to @booking.island, notice: 'Booking declined.'
   end
 
   def accept
