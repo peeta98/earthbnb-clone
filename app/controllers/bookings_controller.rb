@@ -15,6 +15,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "Accepted"
+    redirect_to @booking.island, notice: "Booking accepted!" if @booking.save
+  end
+
   private
 
   def booking_params
