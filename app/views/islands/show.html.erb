@@ -4,7 +4,7 @@
       <div class="carousel-item active">
         <%= cl_image_tag @island.photos.last.key, crop: :fill, height: 500, radius: 5, class: "d-block w-100"%>
       </div>
-      <% @island.photos.each do |photo|%>
+      <% @island.photos.reject do |photo| %>
         <div class="carousel-item">
           <%= cl_image_tag photo.key, crop: :fill , height: 500, radius: 5, class: "d-block w-100"%>
         </div>
@@ -29,6 +29,7 @@
       <p><strong>Owner:</strong> <%= @island.user.username %></p>
       <p class="card-trip-pricing"> <strong>Price:</strong> $<%= @island.price_per_night %> /night</p>
     </div>
+    <%= link_to "Request Booking", new_island_booking_path(@island), class:"btn btn-primary mb-2" %>
   </div>
 </div>
 
