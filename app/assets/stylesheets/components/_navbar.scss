@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #333;
+  background: #626262;
   height: 50px;
 }
 
@@ -10,4 +10,8 @@
 
 .navbar-lewagon .navbar-brand img {
   // width: 10px;
+}
+
+body{
+  background-image: linear-gradient(to right, yellow, aqua);
 }

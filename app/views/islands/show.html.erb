@@ -3,38 +3,51 @@
 <% else %>
   <%= render 'visitor_navbar' %>
 <% end %>
-
-<div class="gx-0" id="show">
-  <h3><%= @island.title %></h3>
-  <div id="carouselCardImages" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <% if @island.photos.attached? %>
-        <div class="carousel-item active">
-          <%= cl_image_tag @island.photos.last.key, crop: :fill, height: 400, radius: 5, class: "d-block w-100"%>
+<div class="container gx-0 ml-0 my-3">
+  <div class="row align-items-start">
+    <div class="col-12 col-lg-9 gx-0 mr-3" id="show">
+      <h3><%= @island.title %></h3>
+      <div id="carouselShow" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner px-3">
+          <% if @island.photos.attached? %>
+            <div class="carousel-item active">
+              <%= cl_image_tag @island.photos.last.key, crop: :fill, height: 500, radius: 5, class: "d-block w-100"%>
+            </div>
+            <% @island.photos.reject do |photo| %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key, crop: :fill , height: 500, radius: 5, class: "d-block w-100"%>
+              </div>
+            <% end %>
+          <% end %>
         </div>
-        <% @island.photos.reject do |photo| %>
-          <div class="carousel-item">
-            <%= cl_image_tag photo.key, crop: :fill , height: 400, radius: 5, class: "d-block w-100"%>
-          </div>
-        <% end %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselShow" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselShow" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="card-trip-infos px-3">
+        <div>
+          <p><strong>Location:</strong> <%= @island.address %></p>
+          <p><strong>About:</strong> <%= @island.description %></p>
+          <p class="card-trip-pricing"> <strong>Price:</strong> $<%= @island.price_per_night %> /night</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-3 gx-0" id="booking-form">
+      <h3>Request Booking</h3>
+      <%= simple_form_for [@island, @booking ] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit 'Request Booking', class: 'btn btn-primary w-100' %>
       <% end %>
+
+      <%= link_to "Go Back", islands_path, class:"btn btn-secondary mt-2 w-100" %>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselCardImages" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselCardImages" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <div class="card-trip-infos">
-    <div>
-      <p><strong>Location:</strong> <%= @island.address %></p>
-      <p><strong>About:</strong> <%= @island.description %></p>
-      <p class="card-trip-pricing"> <strong>Price:</strong> $<%= @island.price_per_night %> /night</p>
     </div>
-    <%= link_to "Request Booking", new_island_booking_path(@island), class:"btn btn-primary mb-2" %>
   </div>
 </div>
 
@@ -51,5 +64,3 @@
     <p><%= booking.status %></p>
   <% end %>
 <% end %>
-
-<%= link_to "Go back", islands_path %>
