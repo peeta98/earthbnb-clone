@@ -3,11 +3,11 @@
     <div class="carousel-inner">
       <% if island.photos.attached? %>
         <div class="carousel-item active">
-          <%= cl_image_tag island.photos.last.key, crop: :fill, height: 180, radius: 10, class: "d-block w-100"%>
+          <%= cl_image_tag island.photos.last.key, crop: :fill, height: 180, radius: 5, class: "d-block w-100"%>
         </div>
         <% island.photos.each do |photo|%>
           <div class="carousel-item">
-            <%= cl_image_tag photo.key, crop: :fill , height: 180, radius: 10, class: "d-block w-100"%>
+            <%= cl_image_tag photo.key, crop: :fill , height: 180, radius: 5, class: "d-block w-100"%>
           </div>
         <% end %>
       <% end %>
@@ -27,7 +27,6 @@
       <p><strong>Location:</strong> <%= island.address %></p>
       <p><strong>About:</strong> <%= island.description %></p>
       <p><strong>Owner:</strong> <%= island.user.username %></p>
-      <p><%= link_to "More details", island_path(island) %></p>
     </div>
     <h2 class="card-trip-pricing">$<%= island.price_per_night %></h2>
   </div>
