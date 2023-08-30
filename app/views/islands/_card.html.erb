@@ -27,7 +27,6 @@
       <p><strong>Location:</strong> <%= island.address %></p>
       <p><strong>About:</strong> <%= island.description %></p>
       <p><strong>Owner:</strong> <%= island.user.username %></p>
-      <p><%= link_to "More details", island_path(island) %></p>
     </div>
     <h2 class="card-trip-pricing">$<%= island.price_per_night %></h2>
   </div>
