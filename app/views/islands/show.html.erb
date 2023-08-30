@@ -1,13 +1,53 @@
-<h1><%=  @island.title%></h1>
-<h3>The owner:<%=  @island.user%></h3>
-<h4><%=  @island.address%></h4>
-<p><%=  @island.description%></p>
-<p><%=  @island.price_per_night%></p>
-<%= link_to "Delete",
+<div id="carouselCardImages" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <% if @island.photos.attached? %>
+      <div class="carousel-item active">
+        <%= cl_image_tag @island.photos.last.key, crop: :fill, height: 500, radius: 5, class: "d-block w-100"%>
+      </div>
+      <% @island.photos.each do |photo|%>
+        <div class="carousel-item">
+          <%= cl_image_tag photo.key, crop: :fill , height: 500, radius: 5, class: "d-block w-100"%>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselCardImages" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselCardImages" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="container" id="show">
+  <div class="card-trip-infos">
+    <div>
+      <h3><%= @island.title %></h3>
+      <p><strong>Location:</strong> <%= @island.address %></p>
+      <p><strong>About:</strong> <%= @island.description %></p>
+      <p><strong>Owner:</strong> <%= @island.user.username %></p>
+      <p class="card-trip-pricing"> <strong>Price:</strong> $<%= @island.price_per_night %> /night</p>
+    </div>
+  </div>
+</div>
+
+<% if @island.user == current_user %>
+  <%= link_to "Delete",
+    island_path(@island),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+<% end %>
+
+<%= link_to "Delete Island",
   island_path(@island),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %>
 <% @island.bookings.each do |booking| %>
+  <p><%= link_to "Edit booking", edit_island_booking_path(@island, booking) %></p>
+  <p>Starts at: <%= booking.start_date %></p>
+  <p>Ends in: <%= booking.end_date %></p>
   <p><%= link_to "Accept booking", accept_island_booking_path(@island, booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure you want to accept this bookings?" }  %></p>
   <p><%= booking.status %></p>
 <% end %>
+<%= link_to "Go back", islands_path %>

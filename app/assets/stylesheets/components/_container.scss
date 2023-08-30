@@ -8,7 +8,11 @@
 
 #cards{
   display: flex;
+<<<<<<< HEAD
   width: 100vw;
+=======
+  margin: 1rem;
+>>>>>>> 1cff836bd1fd470e615c0dfb2b2611cd2af4df53
   margin-left: 3rem;
 
   .row{
@@ -19,5 +23,29 @@
   h1{
     font-size: 50px;
     font-weight: bold;
+  }
+}
+
+#show{
+  border: 1px solid lightgray;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+
+  h3{
+    font-size: 50px;
+    font-weight: bold;
+  }
+  p{
+    font-size: 25px;
+  }
+
+  h2{
+    font-size: 60px;
+    font-weight: bold;
+  }
+  .card-trip-infos{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-grow: 1;
   }
 }
