@@ -1,17 +1,27 @@
-<%= render 'navbar' %>
+<% if user_signed_in? %>
+  <%= render 'user_navbar' %>
+<% else %>
+  <%= render 'visitor_navbar' %>
+<% end %>
 
 <div class="container gx-0" id="cards">
   <div class="row justify-content-between gx-0">
       <h1>Islands List</h1>
-        <% @islands.each do |island| %>
+      <% @islands.each do |island| %>
+        <%= link_to island_path(island), class:"" do%>
           <%= render partial: 'card', locals: { island: island } %>
         <% end %>
+      <% end %>
   </div>
 </div>
 
+<<<<<<< HEAD
 <div class="mt-4" style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+=======
+<%= link_to "Add new island", new_island_path %>
+>>>>>>> master
 
 <%= render partial: 'footer' %>
