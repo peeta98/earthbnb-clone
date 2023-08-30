@@ -2,7 +2,7 @@
   margin-top: 1rem;
   .col-lg-4{
     background-color: linear-gradient(90deg, #90E4FF 94%, #A4FFA3 80%);
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
 }
 
@@ -25,11 +25,16 @@
 
 #show{
   border: 1px solid lightgray;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  width: 50%;
+  margin-top: 1rem;
+  border-radius: 5px;
+  margin-left: 1rem;
 
   h3{
     font-size: 50px;
     font-weight: bold;
+    margin-left: 1rem;
   }
   p{
     font-size: 25px;
