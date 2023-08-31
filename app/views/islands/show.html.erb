@@ -57,8 +57,11 @@
             <% end %>
         <% end %>
       </div>
-
-      <%= link_to "Go Back", islands_path, class:"btn btn-secondary mt-2 w-100" %>
+      <% if current_user.bookings.last.save %>
+        <%= link_to "Go Back", islands_path, class:"btn btn-secondary mt-2 w-100" %>
+      <% else %>
+        <%= link_to "Go Back", island_path(@island), class:"btn btn-secondary mt-2 w-100" %>
+      <% end %>
     </div>
   </div>
 </div>
