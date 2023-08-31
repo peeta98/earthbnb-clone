@@ -7,8 +7,8 @@
   <h4><%= island.title %></h4>
   <% island.bookings.each do |booking| %>
      <p>Client: <%= booking.user.username %></p>
-      Start Date: <%= booking.start_date %><br>
-      End Date: <%= booking.end_date %><br>
+      Start Date: <%= booking.start_date.strftime('%A %b %e') %><br>
+      End Date: <%= booking.end_date.strftime('%A %b %e') %><br>
       Status: <%= booking.status %>
       <% if booking.status == "Pending" %>
       <%= link_to 'Accept', accept_island_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Do you want to confirm this choice?' } %>
