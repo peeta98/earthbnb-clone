@@ -31,49 +31,48 @@
 }
 
 .btn-islands {
-  align-items: center;
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: .25rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-  box-sizing: border-box;
-  color: rgba(0, 0, 0, 0.85);
-  cursor: pointer;
-  display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 26px;
-  font-weight: bold;
-  justify-content: center;
-  line-height: 1.25;
-  margin: 0;
-  min-height: 3rem;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-  position: relative;
+  -webkit-appearance: none;
+  background: -webkit-gradient(to right, rgb(171, 210, 171) 0%, rgb(255, 255, 191) 50%, rgb(182, 241, 241) 100%);
+  background: linear-gradient(to right, rgb(180, 244, 180) 0%, rgb(250, 250, 200) 50%, rgb(190, 253, 253) 100%);
+  background-size: 500%;
   text-decoration: none;
-  transition: all 250ms;
-  user-select: none;
+  margin-left: 90px;
+  border: none;
+  padding: 20px;
+  border-radius: 5rem;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+  color: rgb(48, 44, 44);
+  cursor: pointer;
+  font: 1.5em Raleway, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 5rem;
+  letter-spacing: .05em;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  width: auto;
-  margin-left: 100px;
-}
-
-.btn-islands:hover,
-.btn-islands:focus {
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-  color: rgba(0, 0, 0, 0.65);
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 20rem;
 }
 
 .btn-islands:hover {
-  transform: translateY(-1px);
+  animation-name: gradient;
+  -webkit-animation-name: gradient;
+  animation-duration: 3s;
+  -webkit-animation-duration: 3s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
 }
 
-.btn-islands:active {
-  background-color: #F0F0F1;
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-  color: rgba(0, 0, 0, 0.65);
-  transform: translateY(0);
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
