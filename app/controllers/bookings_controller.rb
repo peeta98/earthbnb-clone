@@ -9,8 +9,10 @@ class BookingsController < ApplicationController
     @booking = current_user.bookings.build(booking_params)
     @booking.island = @island
     if @booking.save
-      redirect_to @island, notice: 'Booking requested.'
+      redirect_to island_path(@island), notice: 'Booking requested.'
     else
+      @last_user_booking = current_user.last_booking_on_island(@island)
+      @review = Review.new
       render "islands/show", status: :unprocessable_entity
     end
   end
