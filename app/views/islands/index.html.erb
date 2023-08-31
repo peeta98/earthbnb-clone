@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="text-center mt-4">
-  <h1>Earth's Most Amazing Islands</h1>
+  <h1><strong>Earth's Most Amazing Islands</strong></h1>
 </div>
 <div class="cards">
   <% @islands.each do |island| %>
@@ -17,7 +17,7 @@
   <% end %>
 </div>
 
-<div class="mt-4" style="width: 100%; height: 600px; position: fixed; bottom: 0;"
+<div class="mt-4" style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
