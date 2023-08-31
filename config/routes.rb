@@ -11,8 +11,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookings, only: :show
+  resources :bookings, only: :show do
+    resources :reviews, only: %i[create edit update]
+  end
   resources :users, only: [:show]
+  resources :reviews, only: %i[destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
