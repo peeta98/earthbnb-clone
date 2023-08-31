@@ -1,0 +1,100 @@
+#GoBack {
+    background-image: linear-gradient(
+      to right,
+      #f6fbc8,
+      #beef9b 50%,
+      #ffffff 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #GoBack:before {
+    content: '';
+    background: #54b3d6;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #GoBack:hover {
+    background-position: 0;
+  }
+
+  #GoBack:hover::before {
+    width: 100%;
+  }
+
+
+
+
+/* Add margin and center the search form */
+.search-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        text-align: center;
+        margin-top: 20px; /* Center child elements */
+
+  }
+
+  /* Add padding and styling to the search input field */
+  .search-form input[type="text"] {
+    padding: 10px; /* Adjust the padding as needed */
+    margin-right: 5px; /* Add a small space between input and button */
+    border: 2px solid #3498db;
+    border-radius: 30px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f8f8f8;
+    flex: 1;
+    outline: none;
+  }
+
+  /* Style for the search submit button */
+  .search-form input[type="submit"] {
+    padding: 10px 25px; /* Adjust the padding as needed */
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  /* Add a fun animation on hover for the submit button */
+  .search-form input[type="submit"]:hover {
+    background-color: #1ea1c2;
+    transform: scale(1.05);
+  }
+
+  /* Add a pulsating animation for the input field when focused */
+  .search-form input[type="text"]:focus {
+    animation: pulsate 1s infinite;
+  }
+
+  @keyframes pulsate {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

@@ -3,7 +3,16 @@ class IslandsController < ApplicationController
   before_action :set_island, only: %i[show edit update destroy]
 
   def index
-    @islands = Island.all
+    if params[:search].blank?
+      flash.now[:error] = "Please enter a valid island name."
+      @islands = Island.all
+    else
+      @islands = Island.search_by_title_and_address(params[:search])
+      if @islands.empty?
+        flash.now[:error] = "No results found for '#{params[:search]}'."
+        @islands = Island.all
+      end
+    end
 
     @markers = @islands.geocoded.map do |island|
       {
@@ -18,7 +27,7 @@ class IslandsController < ApplicationController
   def show
     @booking = Booking.new
     @review = Review.new
-    @last_user_booking = current_user.last_booking_on_island(@island)
+    @last_user_booking = current_user.last_booking_on_island(@island) if user_signed_in?
   end
 
   def new

@@ -7,6 +7,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to island_path(@booking.island), notice: 'Review submitted.'
     else
+      @island = @booking.island
+      @last_user_booking = current_user.last_booking_on_island(@island)
       render "islands/show", status: :unprocessable_entity
     end
   end

@@ -1,4 +1,4 @@
 <div class="popup-info">
   <h2 class="mb-2"><%= island.title %></h2>
-  <p class="mb-0">Price from $<%= island.price_per_night %> per night</p>
+  <p class="mb-0">Price from <%= number_to_currency(island.price_per_night, precision: 0) %> per night</p>
 </div>
