@@ -35,6 +35,7 @@
           <p><strong>Location:</strong> <%= @island.address %></p>
           <p><strong>About:</strong> <%= @island.description %></p>
           <p class="card-trip-pricing"> <strong>Price:</strong> $<%= @island.price_per_night %> /night</p>
+          <p> <strong>Owner:</strong> Mr.<%= @island.user.username %></p>
         </div>
       </div>
     </div>
@@ -48,17 +49,17 @@
         <% end %>
       </div>
 
-      <div id="review-form">
-        <% if @last_user_booking %>
-          <h3>Add a Review</h3>
-            <%= simple_form_for [@last_user_booking, @review] do |f| %>
-              <%= f.input :rating, input_html: { type: "number", min: 0, max: 5 } %>
-              <%= f.input :content %>
-              <%= f.submit 'Submit', class: 'btn btn-primary w-100' %>
-            <% end %>
-        <% end %>
-      </div>
       <% if !current_user.bookings.nil? %>
+        <div id="review-form">
+          <% if @last_user_booking %>
+            <h3>Add a Review</h3>
+              <%= simple_form_for [@last_user_booking, @review] do |f| %>
+                <%= f.input :rating, input_html: { type: "number", min: 0, max: 5 } %>
+                <%= f.input :content %>
+                <%= f.submit 'Submit', class: 'btn btn-primary w-100' %>
+              <% end %>
+          <% end %>
+        </div>
         <% if current_user.bookings.last.save %>
           <%= link_to "Go Back", islands_path, class:"btn btn-secondary w-100" %>
         <% else %>
@@ -68,20 +69,6 @@
     </div>
   </div>
 </div>
-
-<% if @island.user == current_user %>
-  <%= link_to "Delete",
-    island_path(@island),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-  <% @island.bookings.each do |booking| %>
-    <p><%= link_to "Edit booking", edit_island_booking_path(@island, booking) %></p>
-    <p>Starts at: <%= booking.start_date %></p>
-    <p>Ends in: <%= booking.end_date %></p>
-    <p><%= link_to "Accept booking", accept_island_booking_path(@island, booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure you want to accept this bookings?" }  %></p>
-    <p><%= booking.status %></p>
-  <% end %>
-<% end %>
 
 <div>
   <h3>Reviews of the Island</h3>
