@@ -6,8 +6,8 @@
 
 <div class="container gx-0 ml-0 my-4">
   <div class="row align-items-start">
-    <div class="col-12 col-lg-9 gx-0 mr-3" id="show">
-      <h3><%= @island.title %></h3>
+    <div class="col-12 col-lg-9 gx-0 mr-3 py-4" id="show">
+      <h3 class="text-center"><%= @island.title %></h3>
       <div id="carouselShow" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner px-3">
           <% if @island.photos.attached? %>
@@ -30,12 +30,11 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="card-trip-infos px-3">
+      <div class="card-trip-infos px-5 py-5">
         <div>
-          <p><strong>Location:</strong> <%= @island.address %></p>
+          <p><strong>Location:</strong> <%= @island.address %></p><br>
           <p><strong>About:</strong> <%= @island.description %></p>
-          <p><strong>Owner:</strong> <%= @island.user.username %></p>
-          <p class="card-trip-pricing"> <strong>Price:</strong> $<%= @island.price_per_night %> /night</p>
+          <p class="card-trip-pricing"> <strong>Price:</strong><%= number_to_currency(@island.price_per_night, precision: 0) %> /night</p>
         </div>
       </div>
     </div>
