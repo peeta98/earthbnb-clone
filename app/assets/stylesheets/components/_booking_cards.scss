@@ -8,6 +8,8 @@
 
   h2 , h3, h4{
     text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
   }
   .island-container{
     padding: 0;
@@ -20,7 +22,7 @@
 .title{
   h4{
     color: white;
-    font-weight: 900;
+    font-weight: bold;
     font-size: 30px;
   }
 }
@@ -53,6 +55,11 @@
 }
 
 .user-info-container{
+  h2{
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+  }
+  text-align: center;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   background-color: white;
@@ -71,9 +78,12 @@
 .stay-island-container{
   margin-top: 1rem;
   padding: 0;
-
-  h3, h4{
+  h4{
     text-align: center;
+  }
+  h5, h4{
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
   }
 }
 
@@ -83,6 +93,10 @@
 }
 
 #title{
+  h3{
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+  }
   margin: auto;
   margin-top: 1rem;
   justify-content: space-around;

@@ -5,7 +5,8 @@
   height: calc(100% - 110px);
 
   h1 {
-    font: 1.5em Raleway, sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
     font-weight: 900;
     margin: 0;
     color: white;
@@ -15,7 +16,8 @@
   }
 
   p {
-    font: 1.5em Raleway, sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
     font-size: 32px;
     color: white;
     opacity: .7;
