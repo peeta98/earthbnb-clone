@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to @island, notice: 'Booking requested.'
     else
-      render :new, status: :unprocessable_entity
+      render "islands/show", status: :unprocessable_entity
     end
   end
 
