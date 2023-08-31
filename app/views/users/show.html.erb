@@ -32,6 +32,8 @@
   <% if booking.review %>
     <p>Rating: <%= booking.review.rating %>/5.0</p>
     <p>Comment: <%= booking.review.content %></p>
+    <%= link_to 'Edit', edit_booking_review_path(booking, booking.review) %>
+    <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' } %>
   <% end %>
   <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island) %>
 <% end %>

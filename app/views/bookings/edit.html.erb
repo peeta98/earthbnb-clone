@@ -1,5 +1,5 @@
 <h1>Edit Booking</h1>
-<%= simple_form_for [@island, @booking] do |f| %>
+<%= simple_form_for [@review, @booking] do |f| %>
 <%= f.input :start_date, as: :string, input_html: { data: { controller: 'datepicker' } } %>
 <%= f.input :end_date, as: :string,  input_html: { data: { controller: 'datepicker' } } %>
   <%= f.submit 'Edit Booking', class: 'btn btn-primary' %>
