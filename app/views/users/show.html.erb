@@ -6,14 +6,20 @@
 <% @user.islands.each do |island| %>
   <h4><%= island.title %></h4>
   <% island.bookings.each do |booking| %>
-     <p>Client: <%= booking.user.username %></p>
-      Start Date: <%= booking.start_date.strftime('%A %b %e') %><br>
-      End Date: <%= booking.end_date.strftime('%A %b %e') %><br>
-      Status: <%= booking.status %>
-      <% if booking.status == "Pending" %>
+    <p>Client: <%= booking.user.username %></p>
+    <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
+    <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
+    <% if booking.review %>
+      <p>Rating: <%= booking.review.rating %></p>
+      <% if booking.review.content %>
+        <p>Comments: <%= bookings.review.content %></p>
+      <% end %>
+    <% end %>
+    <p>Status: <%= booking.status %></p>
+    <% if booking.status == "Pending" %>
       <%= link_to 'Accept', accept_island_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Do you want to confirm this choice?' } %>
       <%= link_to 'Decline',  decline_island_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Do you want to confirm this choice?' } %>
-      <% end %>
+    <% end %>
   <% end %>
 <% end %>
 
@@ -25,7 +31,6 @@
   <p>Status: <%= booking.status %></p>
   <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island) %>
 <% end %>
-
 
 <p><%= link_to 'See all Islands', islands_path %></p>
 <p><%= link_to 'Go to home page', root_path %></p>

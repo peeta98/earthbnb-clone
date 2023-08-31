@@ -174,4 +174,36 @@ puts "Booking 4 created!"
 hawaii_booking = Booking.create!(start_date: "30/08/2023", end_date: "2/09/2023", user: kevin, island: hawaii)
 puts "Booking 5 created!"
 
+# ----- Seeding instances of Review -----
+puts "Creating 5 reviews..."
+terceira_review = Review.create!(
+  rating: 4.9,
+  content: "Loved it here, full of majestic cows and green landscapes! A must visit if you are rich as me 😎",
+  booking: terceira_booking
+)
+puts "Review 1 created!"
+malta_review = Review.create!(
+  rating: 5.0,
+  content: "Fantastic food and people, there are a lot of cool places to visit!",
+  booking: malta_booking
+)
+puts "Review 2 created!"
+england_review = Review.create!(
+  rating: 2.3,
+  content: "Rained the whole time I stayed there, not a very pleasant experience...",
+  booking: england_booking
+)
+puts "Review 3 created!"
+australia_review = Review.create!(
+  rating: 3.5,
+  content: "This island is pretty awesome, if we remove the fact that I was almost bitten by a venomous spider 🕷️",
+  booking: australia_booking
+)
+puts "Review 4 created!"
+hawaii_review = Review.create!(
+  rating: 5.0,
+  content: "Simply amazing... Fantastic beaches, waves... A must vibes experience for every billionaire!",
+  booking: hawaii_booking
+)
+puts "Review 5 created!"
 puts "All seeds created successfully!"
