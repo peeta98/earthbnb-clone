@@ -6,5 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def last_booking_on_island(island)
+    Booking.where(user: self, island: island)&.last
+  end
+
   validates :username, presence: true, uniqueness: true, length: { minimum: 6 }
 end
