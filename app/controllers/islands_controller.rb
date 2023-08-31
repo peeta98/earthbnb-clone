@@ -27,7 +27,7 @@ class IslandsController < ApplicationController
   def show
     @booking = Booking.new
     @review = Review.new
-    @last_user_booking = current_user.last_booking_on_island(@island)
+    @last_user_booking = current_user.last_booking_on_island(@island) if user_signed_in?
   end
 
   def new
