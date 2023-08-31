@@ -5,17 +5,13 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
     @booking = current_user.bookings.build(booking_params)
     @booking.island = @island
     if @booking.save
       redirect_to @island, notice: 'Booking requested.'
     else
-      render :new, status: :unprocessable_entity
+      render "islands/show", status: :unprocessable_entity
     end
   end
 
