@@ -80,3 +80,13 @@
     <p><%= booking.status %></p>
   <% end %>
 <% end %>
+
+<div>
+  <h3>Reviews of the Island</h3>
+  <% @island.bookings.each do |booking| %>
+    <% if booking.review %>
+      <p>Rating: <%= booking.review.rating %>/5.0</p>
+      <p><%= booking.user.username %>: <%= booking.review.content %></p>
+    <% end %>
+  <% end %>
+</div>
