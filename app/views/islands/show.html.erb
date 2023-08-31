@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= render 'user_navbar' %>
+  <%= render 'islands/user_navbar' %>
 <% else %>
   <%= render 'visitor_navbar' %>
 <% end %>
@@ -39,10 +39,10 @@
     </div>
     <div class="col-12 col-lg-3 gx-0" id="booking-form">
       <div>
-        <h3>Request Booking</h3>
+         <h3>Request Booking</h3>
         <%= simple_form_for [@island, @booking ] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
+          <%= f.input :start_date,as: :string, input_html: { data: { controller: 'datepicker' } } %>
+          <%= f.input :end_date, as: :string,  input_html: { data: { controller: 'datepicker' } } %>
           <%= f.submit 'Request Booking', class: 'btn btn-primary w-100' %>
         <% end %>
       </div>
