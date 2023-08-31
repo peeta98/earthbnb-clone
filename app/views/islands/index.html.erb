@@ -3,10 +3,6 @@
 <% else %>
   <%= render 'visitor_navbar' %>
 <% end %>
-<%= form_with(url: islands_path, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :search, placeholder: "Search islands by title or address..." %>
-  <%= form.submit "Search", class: "btn btn-primary" %>
-<% end %>
 
 <div class="text-center mt-4">
   <h1><strong>Earth's Most Amazing Islands</strong></h1>

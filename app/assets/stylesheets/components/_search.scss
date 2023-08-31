@@ -1,0 +1,89 @@
+.goback {
+    text-decoration: none;
+    top: 0;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 30px;
+    padding: 0px 15px;
+    text-shadow: #00000040 0px 3px 8px;
+    background: linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%);
+    transition: all 0.5s ease 0s;
+  }
+  
+  .goback:hover {
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .goback:active {
+    background-color: #333;
+    color: #fff;
+    box-shadow: none;
+  }
+  
+
+  
+  
+/* Style for the form container */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the search input field */
+  .search-form input[type="text"] {
+    padding: 15px;
+    border: 2px solid #3498db;;
+    border-radius: 30px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f8f8f8;
+    flex: 1;
+    outline: none;
+  }
+  
+  /* Style for the search submit button */
+  .search-form input[type="submit"] {
+    padding: 15px 25px;
+    background-color: #3498db;;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Add a fun animation on hover for the submit button */
+  .search-form input[type="submit"]:hover {
+    background-color: #1ea1c2;
+    transform: scale(1.05);
+  }
+  
+  /* Add a pulsating animation for the input field when focused */
+  .search-form input[type="text"]:focus {
+    animation: pulsate 1s infinite;
+  }
+  
+  @keyframes pulsate {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  

@@ -6,6 +6,15 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="dropdown" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div >
+      <%= form_with(url: islands_path, method: :get, class: "search-form") do |form| %>
+              <%= form.text_field :search, placeholder: "Search for island.." %>
+              <%= form.submit "Search", class: "btn btn-primary" %>
+            <% end %>
+    </div>
+    <div>
+    <%= link_to "See all Islands", islands_path, class: "goback" %>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active mt-2 mx-2 ">
