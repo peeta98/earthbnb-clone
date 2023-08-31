@@ -15,7 +15,7 @@
     font-weight: bold;
     transition: all 0.3s ease-in-out;
   }
-  
+
   #GoBack:before {
     content: '';
     background: #54b3d6;
@@ -27,28 +27,29 @@
     height: 3px;
     transition: all 0.3s ease-in-out;
   }
-  
+
   #GoBack:hover {
     background-position: 0;
   }
-  
+
   #GoBack:hover::before {
     width: 100%;
   }
-  
-  
 
-  
+
+
+
 /* Add margin and center the search form */
 .search-form {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 20px;
         margin-bottom: 20px;
         text-align: center; /* Center child elements */
-      
+
   }
-  
+
   /* Add padding and styling to the search input field */
   .search-form input[type="text"] {
     padding: 10px; /* Adjust the padding as needed */
@@ -61,7 +62,7 @@
     flex: 1;
     outline: none;
   }
-  
+
   /* Style for the search submit button */
   .search-form input[type="submit"] {
     padding: 10px 25px; /* Adjust the padding as needed */
@@ -74,18 +75,18 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
-  
+
   /* Add a fun animation on hover for the submit button */
   .search-form input[type="submit"]:hover {
     background-color: #1ea1c2;
     transform: scale(1.05);
   }
-  
+
   /* Add a pulsating animation for the input field when focused */
   .search-form input[type="text"]:focus {
     animation: pulsate 1s infinite;
   }
-  
+
   @keyframes pulsate {
     0% {
       transform: scale(1);
@@ -97,6 +98,3 @@
       transform: scale(1);
     }
   }
-  
-  
-  
