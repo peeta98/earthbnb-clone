@@ -163,15 +163,15 @@ hawaii.save!
 # ----- Seeding instances of Booking -----
 puts "Creating 5 bookings..."
 # The user associated with the booking is the BUYER!
-terceira_booking = Booking.create!(start_date: "02/09/2023", end_date: "03/09/2023", user: klevion, island: terceira)
+terceira_booking = Booking.create!(start_date: "02/09/2023", end_date: "03/09/2023", user: klevion, island: terceira, status:"Accepted")
 puts "Booking 1 created!"
-malta_booking = Booking.create!(start_date: "05/09/2023", end_date: "07/09/2023", user: ayub, island: malta)
+malta_booking = Booking.create!(start_date: "05/09/2023", end_date: "07/09/2023", user: ayub, island: malta, status: "Accepted")
 puts "Booking 2 created!"
-england_booking = Booking.create!(start_date: "10/09/2023", end_date: "15/09/2023", user: pedro, island: england)
+england_booking = Booking.create!(start_date: "10/09/2023", end_date: "15/09/2023", user: pedro, island: england, status: "Accepted")
 puts "Booking 3 created!"
-australia_booking = Booking.create!(start_date: "23/09/2023", end_date: "26/09/2023", user: gonçalo, island: australia)
+australia_booking = Booking.create!(start_date: "23/09/2023", end_date: "26/09/2023", user: gonçalo, island: australia, status: "Accepted")
 puts "Booking 4 created!"
-hawaii_booking = Booking.create!(start_date: "30/08/2023", end_date: "2/09/2023", user: kevin, island: hawaii)
+hawaii_booking = Booking.create!(start_date: "30/08/2023", end_date: "2/09/2023", user: kevin, island: hawaii, status: "Accepted")
 puts "Booking 5 created!"
 
 # ----- Seeding instances of Review -----
