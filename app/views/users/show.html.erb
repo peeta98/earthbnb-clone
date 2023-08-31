@@ -12,7 +12,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-9 booking-cards-container">
-      <h3>🏝️ Bookings Request For Your Islands 🏝️</h3>
+      <h3>🏝️ Client Bookings 🏝️</h3>
         <% @user.islands.each do |island| %>
       <div class="island-container"
        style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path island.photos.first.key, crop: :fill %>')">
@@ -60,7 +60,7 @@
 
 
 <div id="title">
-  <h3>🏝️ Your bookings to stay in other islands 🏝️</h3>
+  <h3>🏝️ Your <B></B>ookings 🏝️</h3>
 </div>
 
 <div class="container">
