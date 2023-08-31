@@ -3,24 +3,20 @@
   background-position: center;
   padding: 300px 0;
   height: calc(100% - 110px);
+
   h1 {
+    font: 1.5em Raleway, sans-serif;
+    font-weight: 900;
     margin: 0;
     color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    font-size: 50px;
-    font-weight: bold;
+    font-size: 60px;
     margin-left: 100px;
   }
-  h2 {
-    margin: 0;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 100px;
-  }
+  
   p {
-    font-size: 28px;
+    font: 1.5em Raleway, sans-serif;
+    font-size: 32px;
     color: white;
     opacity: .7;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
