@@ -34,6 +34,7 @@
         <div>
           <p><strong>Location:</strong> <%= @island.address %></p>
           <p><strong>About:</strong> <%= @island.description %></p>
+          <p><strong>Owner:</strong> <%= @island.user.username %></p>
           <p class="card-trip-pricing"> <strong>Price:</strong> $<%= @island.price_per_night %> /night</p>
         </div>
       </div>
@@ -47,24 +48,17 @@
           <%= f.submit 'Request Booking', class: 'btn btn-primary w-100' %>
         <% end %>
       </div>
-
-      <div id="review-form">
         <% if @last_user_booking %>
-          <h3>Add a Review</h3>
-            <%= simple_form_for [@last_user_booking, @review] do |f| %>
-              <%= f.input :rating, input_html: { type: "number", min: 0, max: 5 } %>
-              <%= f.input :content %>
-              <%= f.submit 'Submit', class: 'btn btn-primary w-100' %>
-            <% end %>
+          <div id="review-form">
+            <h3>Add a Review</h3>
+              <%= simple_form_for [@last_user_booking, @review] do |f| %>
+                <%= f.input :rating, input_html: { type: "number", min: 0, max: 5 } %>
+                <%= f.input :content %>
+                <%= f.submit 'Submit', class: 'btn btn-primary w-100' %>
+              <% end %>
+          </div>
         <% end %>
-      </div>
-      <% if !current_user.bookings.nil? %>
-        <% if current_user.bookings.last.save %>
-          <%= link_to "Go Back", islands_path, class:"btn btn-secondary w-100" %>
-        <% else %>
-          <%= link_to "Go Back", island_path(@island), class:"btn btn-secondary w-100" %>
-        <% end %>
-      <% end %>
+      <%= link_to "Show all Islands", islands_path, class:"btn btn-secondary w-100" %>
     </div>
   </div>
 </div>
