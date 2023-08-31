@@ -1,0 +1,9 @@
+<div id="booking-form">
+  <h3>Edit Review</h3>
+  <%= simple_form_for [@booking, @review] do |f| %>
+    <%= f.input :rating, input_html: { type: "number", min: 0, max: 5 } %>
+    <%= f.input :content %>
+    <%= f.submit 'Submit', class: 'btn btn-primary w-100' %>
+  <% end %>
+    <%= link_to "Go Back", user_path(current_user), class:"btn btn-secondary mt-2 w-100" %>
+</div>

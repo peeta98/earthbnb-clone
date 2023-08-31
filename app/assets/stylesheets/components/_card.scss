@@ -19,7 +19,7 @@
     font-weight: bold;
     margin-top: 1rem;
     padding-bottom: 0;
-    margin-bottom: 0;
+    margin-bottom: -10px;
   }
   h2 {
     font-size: 18px;
@@ -36,6 +36,7 @@
   }
 }
 .card{
+  height: 100%;
   border-radius: 5px;
   padding: 0.25rem;
   border: 0;
@@ -48,6 +49,7 @@
     align-items: end;
     justify-content: space-between;
     margin-bottom: 0.75rem;
+
   }
 }
 // }
