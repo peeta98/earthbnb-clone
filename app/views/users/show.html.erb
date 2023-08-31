@@ -33,7 +33,7 @@
                 <% end %>
               <% end %>
               <p>Status: <%= booking.status %></p>
-          
+
               <div class="d-flex">
                 <% if booking.status == "Pending" %>
                   <%= link_to 'Accept', accept_island_booking_path(booking),class:"btn btn-success w-50 me-1", data: { turbo_method: :patch, turbo_confirm: 'Do you want to accept request?' } %>
@@ -127,7 +127,7 @@
     </div>
   </div>
   <div class="d-flex justify-content-center">
-    <%= link_to 'See all Islands', islands_path , class:"links btn btn-secondary text-light w-25 mx-5 my-3" %>
-    <%= link_to 'Go to home page', root_path , class:"links btn btn-secondary text-light w-25 mx-5 my-3" %>
+    <%= link_to 'See all 🏝️slands', islands_path , class:"links btn btn-light text-dark w-25 mx-5 my-3" %>
+    <%= link_to 'Go to 🏠 page', root_path , class:"links btn btn-light text-dark w-25 mx-5 my-3" %>
   </div>
 </div>
