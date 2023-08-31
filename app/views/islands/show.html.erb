@@ -34,7 +34,12 @@
         <div>
           <p><strong>Location:</strong> <%= @island.address %></p>
           <p><strong>About:</strong> <%= @island.description %></p>
+<<<<<<< HEAD
           <p class="card-trip-pricing"> <strong>Price:</strong><%= number_to_currency(@island.price_per_night, precision: 0) %> /night</p>
+=======
+          <p><strong>Owner:</strong> <%= @island.user.username %></p>
+          <p class="card-trip-pricing"> <strong>Price:</strong> $<%= @island.price_per_night %> /night</p>
+>>>>>>> master
         </div>
       </div>
     </div>
@@ -47,24 +52,17 @@
           <%= f.submit 'Request Booking', class: 'btn btn-primary w-100' %>
         <% end %>
       </div>
-
-      <div id="review-form">
         <% if @last_user_booking %>
-          <h3>Add a Review</h3>
-            <%= simple_form_for [@last_user_booking, @review] do |f| %>
-              <%= f.input :rating, input_html: { type: "number", min: 0, max: 5 } %>
-              <%= f.input :content %>
-              <%= f.submit 'Submit', class: 'btn btn-primary w-100' %>
-            <% end %>
+          <div id="review-form">
+            <h3>Add a Review</h3>
+              <%= simple_form_for [@last_user_booking, @review] do |f| %>
+                <%= f.input :rating, input_html: { type: "number", min: 0, max: 5 } %>
+                <%= f.input :content %>
+                <%= f.submit 'Submit', class: 'btn btn-primary w-100' %>
+              <% end %>
+          </div>
         <% end %>
-      </div>
-      <% if !current_user.bookings.nil? %>
-        <% if current_user.bookings.last.save %>
-          <%= link_to "Go Back", islands_path, class:"btn btn-secondary w-100" %>
-        <% else %>
-          <%= link_to "Go Back", island_path(@island), class:"btn btn-secondary w-100" %>
-        <% end %>
-      <% end %>
+      <%= link_to "Show all Islands", islands_path, class:"btn btn-secondary w-100" %>
     </div>
   </div>
 </div>
@@ -83,12 +81,35 @@
   <% end %>
 <% end %>
 
+<style>
+  .custom-card {
+    margin-bottom: 15px;
+  }
+</style>
+
 <div>
-  <h3>Reviews of the Island</h3>
-  <% @island.bookings.each do |booking| %>
-    <% if booking.review %>
-      <p>Rating: <%= booking.review.rating %>/5.0</p>
-      <p><%= booking.user.username %>: <%= booking.review.content %></p>
-    <% end %>
-  <% end %>
+  <h3 class="text-center">Reviews of the Island</h3>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10">
+      <% @island.bookings.each do |booking| %>
+        <% if booking.review %>
+          <div class="card custom-card mb-20">
+            <div class="card-body m-3">
+              <div class="row">
+                <div class="col-lg-4 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+                  <img src="https://www.elevenforum.com/proxy.php?image=https%3A%2F%2Fi.hizliresim.com%2Fqde7y7b.png&hash=8840a7826b2be91b53ca4f36d7726152"
+                    class="rounded-circle img-fluid shadow-1" width="200" height="200" />
+                </div>
+                <div class="col-lg-8">
+                  <p class="fw-bold lead mb-4"><%= booking.user.username %></p>
+                  <p class="fw-bold text-muted mb-2"><%= booking.review.content %></p>
+                  <p>Rating: <%= booking.review.rating %>/5.0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
