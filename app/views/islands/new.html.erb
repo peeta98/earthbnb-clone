@@ -1,6 +1,12 @@
+<% if user_signed_in? %>
+  <%= render 'user_navbar' %>
+<% else %>
+  <%= render 'visitor_navbar' %>
+<% end %>
+
 <div class="container" id="authentication">
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-4 py-3">
+    <div class="col-12 col-lg-4 py-3 mt-5">
       <%= simple_form_for(@island) do |f| %>
         <%= f.input :title %>
         <%= f.input :address %>
@@ -9,8 +15,10 @@
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.button :submit, class: "btn btn-primary w-100" %>
       <% end %>
+      <%= link_to islands_path, class: "btn btn-link" do %>
+      <i class="fas fa-arrow-left"></i> Go back
+      <% end %>
     </div>
   </div>
 </div>
-
-<%= link_to "Go back", islands_path %>
+<%= render 'footer' %>
