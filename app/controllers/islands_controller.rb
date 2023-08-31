@@ -3,7 +3,11 @@ class IslandsController < ApplicationController
   before_action :set_island, only: %i[show edit update destroy]
 
   def index
-    @islands = Island.all
+      if params[:search]
+        @islands = Island.search_by_title_and_address(params[:search])
+      else
+        @islands = Island.all
+      end
 
     @markers = @islands.geocoded.map do |island|
       {
