@@ -1,11 +1,11 @@
 class ReviewsController < ApplicationController
-  before_action :set_island, only: %i[create edit update]
+  before_action :set_booking, only: %i[create edit update]
 
   def create
     @review = Review.new(review_params)
     @review.booking = @booking
     if @review.save
-      redirect_to island_path(@island), notice: 'Review submitted.'
+      redirect_to island_path(@booking.island), notice: 'Review submitted.'
     else
       render "islands/show", status: :unprocessable_entity
     end
@@ -21,6 +21,12 @@ class ReviewsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def review_params
@@ -28,6 +34,6 @@ class ReviewsController < ApplicationController
   end
 
   def set_booking
-    @booking = Island.find(params[:booking_id])
+    @booking = Booking.find(params[:booking_id])
   end
 end
