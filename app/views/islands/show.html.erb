@@ -57,14 +57,8 @@
                 <%= f.submit 'Submit', class: 'btn btn-primary w-100' %>
               <% end %>
           <% end %>
+          <%= link_to "Show all Islands", islands_path, class:"btn btn-secondary w-100" %>
         </div>
-        <% if current_user.bookings.last.save %>
-          <%= link_to "Go Back", islands_path, class:"btn btn-secondary w-100" %>
-        <% else %>
-          <%= link_to "Go Back", island_path(@island), class:"btn btn-secondary w-100" %>
-          </div>
-        <% end %>
-      <%= link_to "Show all Islands", islands_path, class:"btn btn-secondary w-100" %>
     </div>
   </div>
 </div>
