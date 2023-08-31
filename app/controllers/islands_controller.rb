@@ -17,6 +17,8 @@ class IslandsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @review = Review.new
+    @last_user_booking = current_user.last_booking_on_island(@island)
   end
 
   def new
