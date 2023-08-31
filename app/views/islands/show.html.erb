@@ -1,9 +1,10 @@
 <% if user_signed_in? %>
   <%= render 'islands/user_navbar' %>
 <% else %>
-  <%= render 'visitor_navbar' %>
+  <%= render 'islands/visitor_navbar' %>
 <% end %>
-<div class="container gx-0 ml-0 my-3">
+
+<div class="container gx-0 ml-0 my-4">
   <div class="row align-items-start">
     <div class="col-12 col-lg-9 gx-0 mr-3" id="show">
       <h3><%= @island.title %></h3>
@@ -37,8 +38,8 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-3 gx-0" id="booking-form">
-      <div>
+    <div class="col-12 col-lg-3 forms flex-column gx-0">
+      <div id="booking-form">
         <h3>Request Booking</h3>
         <%= simple_form_for [@island, @booking ] do |f| %>
           <%= f.input :start_date, as: :string, input_html: { data: { controller: 'datepicker' } } %>
@@ -47,7 +48,7 @@
         <% end %>
       </div>
 
-      <div>
+      <div id="review-form">
         <% if @last_user_booking %>
           <h3>Add a Review</h3>
             <%= simple_form_for [@last_user_booking, @review] do |f| %>
@@ -58,9 +59,9 @@
         <% end %>
       </div>
       <% if current_user.bookings.last.save %>
-        <%= link_to "Go Back", islands_path, class:"btn btn-secondary mt-2 w-100" %>
+        <%= link_to "Go Back", islands_path, class:"btn btn-secondary w-100" %>
       <% else %>
-        <%= link_to "Go Back", island_path(@island), class:"btn btn-secondary mt-2 w-100" %>
+        <%= link_to "Go Back", island_path(@island), class:"btn btn-secondary w-100" %>
       <% end %>
     </div>
   </div>
@@ -79,3 +80,13 @@
     <p><%= booking.status %></p>
   <% end %>
 <% end %>
+
+<div>
+  <h3>Reviews of the Island</h3>
+  <% @island.bookings.each do |booking| %>
+    <% if booking.review %>
+      <p>Rating: <%= booking.review.rating %>/5.0</p>
+      <p><%= booking.user.username %>: <%= booking.review.content %></p>
+    <% end %>
+  <% end %>
+</div>

@@ -47,8 +47,8 @@ class IslandsController < ApplicationController
   end
 
   def destroy
-      @island.destroy
-      redirect_to islands_path, status: :see_other
+    @island.destroy
+    redirect_to islands_path, status: :see_other
   end
 
   private
