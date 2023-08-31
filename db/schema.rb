@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_091507) do
     t.bigint "island_id", null: false
     t.date "start_date"
     t.date "end_date"
-    t.string "status", default: "Pending"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["island_id"], name: "index_bookings_on_island_id"
