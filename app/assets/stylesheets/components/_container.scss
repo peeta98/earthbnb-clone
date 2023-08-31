@@ -1,8 +1,8 @@
 #authentication{
   margin-top: 1rem;
   .col-lg-4{
-    background-color: linear-gradient(90deg, #90E4FF 94%, #A4FFA3 80%);
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   }
 }
 
@@ -23,12 +23,19 @@
 }
 
 #show{
+  background-color: white;
   border: 1px solid lightgray;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  width: 70%;
+  margin-top: 0;
+  border-radius: 5px;
+  margin-left: 0;
+  margin-right: auto;
 
   h3{
     font-size: 50px;
     font-weight: bold;
+    margin-left: 1rem;
   }
   p{
     font-size: 25px;
@@ -44,4 +51,15 @@
     align-items: end;
     flex-grow: 1;
   }
+}
+
+#booking-form{
+  border: 1px solid lightgray;
+  background-color: white;
+  width: 28%;
+  height: 60%;
+  padding: 1rem;
+  margin-top: 0;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }

@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    redirect_to island_path(@booking.island)
+    redirect_to user_path(current_user)
   end
 
   def decline

@@ -1,5 +1,5 @@
-<div class="card mt-3 my-0">
-  <div id="carouselCardImages" class="carousel slide" data-bs-ride="carousel">
+<div class="card mt-0 my-0">
+  <div id="carouselCardImages" class="carousel slide rounded-3" data-bs-ride="carousel">
     <div class="carousel-inner">
       <% if island.photos.attached? %>
         <div class="carousel-item active">
@@ -12,21 +12,12 @@
         <% end %>
       <% end %>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselCardImages" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselCardImages" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
   <div class="card-trip-infos">
     <div>
       <h3><%= island.title %></h3>
       <p><strong>Location:</strong> <%= island.address %></p>
       <p><strong>About:</strong> <%= island.description %></p>
-      <p><strong>Owner:</strong> <%= island.user.username %></p>
     </div>
     <h2 class="card-trip-pricing">$<%= island.price_per_night %></h2>
   </div>
