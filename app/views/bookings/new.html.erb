@@ -2,8 +2,8 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-4 py-3">
       <%= simple_form_for [@island, @booking ] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
+        <%= f.input :start_date,as: :string, input_html: { data: { controller: 'datepicker' } } %>
+        <%= f.input :end_date, as: :string,  input_html: { data: { controller: 'datepicker' } } %>
         <%= f.submit 'Request Booking', class: 'btn btn-primary w-100' %>
       <% end %>
 
