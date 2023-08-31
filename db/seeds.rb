@@ -8,10 +8,10 @@
 require 'open-uri'
 
 puts "Deleting seeds..."
-User.destroy_all
-Island.destroy_all
-Booking.destroy_all
 Review.destroy_all
+Booking.destroy_all
+Island.destroy_all
+User.destroy_all
 puts "Seeds deleted!"
 
 #  ----- Seeding instances of User -----
