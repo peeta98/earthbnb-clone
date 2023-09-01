@@ -10,7 +10,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 65px;
+  width: 10px;
 }
 
 #EarthBNB {
@@ -53,4 +53,51 @@
 
 body{
   background-image: linear-gradient(90deg, #f9f7c9, #f7e9c2 );
+}
+
+.btn-different {
+  -webkit-appearance: none;
+  background: -webkit-gradient(to right, rgb(171, 210, 171) 0%, rgb(255, 255, 191) 50%, rgb(182, 241, 241) 100%);
+  background: linear-gradient(to right, rgb(255, 254, 206) 0%, rgb(203, 255, 201) 50%, rgb(184, 255, 207) 100%);
+  text-decoration: none;
+  border: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+  color: rgb(48, 44, 44);
+  cursor: pointer;
+  font: 1em Raleway, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: .05em;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: bolder;
+}
+
+.btn-different:hover {
+  animation-name: gradient;
+  -webkit-animation-name: gradient;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
