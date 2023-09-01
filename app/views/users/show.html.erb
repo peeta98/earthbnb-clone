@@ -1,3 +1,5 @@
+<%= render 'user_navbar' %>
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-9 user-info-container my-3">
@@ -19,20 +21,14 @@
         <div class="title">
           <h4><%= island.title %></h4>
         </div>
-        <div class="island-card-container">
+        <div class="island-card-container d-flex">
           <% island.bookings.each do |booking| %>
             <div class="booking-card">
 
                 <p>Client: <%= booking.user.username %></p>
                 <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
                 <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
-              <% if booking.review %>
-                <p>Rating: <%= booking.review.rating %></p>
-                <% if booking.review.content %>
-                  <p>Comments: <%= booking.review.content %></p>
-                <% end %>
-              <% end %>
-              <p>Status: <%= booking.status %></p>
+                <p>Status: <%= booking.status %></p>
 
               <div class="d-flex">
                 <% if booking.status == "Pending" %>
@@ -44,7 +40,7 @@
                   </div>
                 <% else %>
                   <div class="text-center bg-light text-danger w-100">
-                    Declined ❌X
+                    Declined ❌
                   </div>
                 <% end %>
               </div>
@@ -58,9 +54,12 @@
 </div>
 
 
-
-<div id="title">
-  <h3>🏝️ Your Bookings 🏝️</h3>
+<div class="container">
+  <div class="row justify content-center">
+    <div class="col-12 col-lg-9" id="title">
+      <h3>🏝️ Your Bookings 🏝️</h3>
+    </div>
+  </div>
 </div>
 
 <div class="container">
@@ -74,13 +73,15 @@
           <p>Status: <%= booking.status %></p>
           <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
           <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
+          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island),class:"btn btn-primary mb-2" %>
             <% if booking.review %>
               <p>Rating: <%= booking.review.rating %>/5.0</p>
               <p>Comment: <%= booking.review.content %></p>
-              <%= link_to 'Edit', edit_booking_review_path(booking, booking.review) %>
-              <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' } %>
+              <div class="d-flex">
+                <%= link_to 'Edit', edit_booking_review_path(booking, booking.review), class:"btn btn-primary w-50 me-1"%>
+                <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' }, class:"btn btn-danger w-50 ms-1 text-light" %>
+              </div>
             <% end %>
-          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island) %>
           <hr>
         <% end %>
       <% end %>
@@ -94,13 +95,15 @@
           <p>Status: <%= booking.status %></p>
           <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
           <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
+          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island),class:"btn btn-primary mb-2" %>
           <% if booking.review %>
             <p>Rating: <%= booking.review.rating %>/5.0</p>
             <p>Comment: <%= booking.review.content %></p>
-            <%= link_to 'Edit', edit_booking_review_path(booking, booking.review) %>
-            <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' } %>
+            <div class="d-flex">
+              <%= link_to 'Edit', edit_booking_review_path(booking, booking.review), class:"btn btn-primary w-50 me-1"%>
+              <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' }, class:"btn btn-danger w-50 ms-1 text-light" %>
+            </div>
           <% end %>
-          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island) %>
           <hr>
         <% end %>
       <% end %>
@@ -114,13 +117,16 @@
           <p>Status: <%= booking.status %></p>
           <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
           <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
+          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island),class:"btn btn-primary mb-2" %>
+          <p>-----------</p>
           <% if booking.review %>
             <p>Rating: <%= booking.review.rating %>/5.0</p>
             <p>Comment: <%= booking.review.content %></p>
-            <%= link_to 'Edit', edit_booking_review_path(booking, booking.review) %>
-            <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' } %>
+            <div class="d-flex">
+              <%= link_to 'Edit', edit_booking_review_path(booking, booking.review), class:"btn btn-primary w-50 me-1"%>
+              <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' }, class:"btn btn-danger w-50 ms-1 text-light" %>
+            </div>
           <% end %>
-          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island) %>
           <hr>
         <% end %>
       <% end %>
