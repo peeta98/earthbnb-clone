@@ -1,42 +1,133 @@
-<h3>Welcome to your profile <%= @user.username %>!</h3>
-<p>Username: <%= @user.username %></p>
-<p>Email: <%= @user.email %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-9 user-info-container my-3">
+      <h2>Welcome to your profile <%= @user.username %>!</h2>
+      <p><strong>Username:</strong> <%= @user.username %></p>
+      <p><strong>Email:</strong> <%= @user.email %></p>
+    </div>
+  </div>
+</div>
 
-<h3>Bookings to your Islands </h3>
-<% @user.islands.each do |island| %>
-  <h4><%= island.title %></h4>
-  <% island.bookings.each do |booking| %>
-    <p>Client: <%= booking.user.username %></p>
-    <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
-    <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
-    <% if booking.review %>
-      <p>Rating: <%= booking.review.rating %></p>
-      <% if booking.review.content %>
-        <p>Comments: <%= booking.review.content %></p>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-9 booking-cards-container">
+      <h3>🏝️ Client Bookings 🏝️</h3>
+        <% @user.islands.each do |island| %>
+      <div class="island-container"
+       style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path island.photos.first.key, crop: :fill %>')">
+        <div class="title">
+          <h4><%= island.title %></h4>
+        </div>
+        <div class="island-card-container">
+          <% island.bookings.each do |booking| %>
+            <div class="booking-card">
+
+                <p>Client: <%= booking.user.username %></p>
+                <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
+                <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
+              <% if booking.review %>
+                <p>Rating: <%= booking.review.rating %></p>
+                <% if booking.review.content %>
+                  <p>Comments: <%= booking.review.content %></p>
+                <% end %>
+              <% end %>
+              <p>Status: <%= booking.status %></p>
+
+              <div class="d-flex">
+                <% if booking.status == "Pending" %>
+                  <%= link_to 'Accept', accept_island_booking_path(booking),class:"btn btn-success w-50 me-1", data: { turbo_method: :patch, turbo_confirm: 'Do you want to accept request?' } %>
+                  <%= link_to 'Decline',  decline_island_booking_path(booking),class:"btn btn-danger w-50 ms-1", data: { turbo_method: :patch, turbo_confirm: 'Do you want to decline request?' } %>
+                <% elsif booking.status == "Accepted" %>
+                  <div class="text-center bg-light text-success w-100">
+                    Accepted ✅
+                  </div>
+                <% else %>
+                  <div class="text-center bg-light text-danger w-100">
+                    Declined ❌X
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
       <% end %>
-    <% end %>
-    <p>Status: <%= booking.status %></p>
-    <% if booking.status == "Pending" %>
-      <%= link_to 'Accept', accept_island_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Do you want to confirm this choice?' } %>
-      <%= link_to 'Decline',  decline_island_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Do you want to confirm this choice?' } %>
-    <% end %>
-  <% end %>
-<% end %>
+    </div>
+  </div>
+</div>
 
-<h3>Your bookings to stay in other islands</h3>
-<% @user.bookings.each do |booking| %>
-  <h4><%= booking.island.title %></h4>
-  <p>Status: <%= booking.status %></p>
-  <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
-  <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
-  <% if booking.review %>
-    <p>Rating: <%= booking.review.rating %>/5.0</p>
-    <p>Comment: <%= booking.review.content %></p>
-    <%= link_to 'Edit', edit_booking_review_path(booking, booking.review) %>
-    <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' } %>
-  <% end %>
-  <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island) %>
-<% end %>
 
-<p><%= link_to 'See all Islands', islands_path %></p>
-<p><%= link_to 'Go to home page', root_path %></p>
+
+<div id="title">
+  <h3>🏝️ Your Bookings 🏝️</h3>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center stay-island-container">
+    <div class="stay-island col-12 col-lg-3">
+      <h4>Pending Requests</h4>
+      <hr>
+      <% @user.bookings.each do |booking| %>
+        <% if booking.status == "Pending" %>
+          <h5><%= booking.island.title %></h5>
+          <p>Status: <%= booking.status %></p>
+          <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
+          <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
+            <% if booking.review %>
+              <p>Rating: <%= booking.review.rating %>/5.0</p>
+              <p>Comment: <%= booking.review.content %></p>
+              <%= link_to 'Edit', edit_booking_review_path(booking, booking.review) %>
+              <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' } %>
+            <% end %>
+          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island) %>
+          <hr>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="stay-island col-12 col-lg-3 mx-3">
+      <h4>Accepted Requests</h4>
+      <hr>
+      <% @user.bookings.each do |booking| %>
+        <% if booking.status == "Accepted" %>
+          <h5><%= booking.island.title %></h5>
+          <p>Status: <%= booking.status %></p>
+          <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
+          <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
+          <% if booking.review %>
+            <p>Rating: <%= booking.review.rating %>/5.0</p>
+            <p>Comment: <%= booking.review.content %></p>
+            <%= link_to 'Edit', edit_booking_review_path(booking, booking.review) %>
+            <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' } %>
+          <% end %>
+          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island) %>
+          <hr>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="stay-island col-12 col-lg-3">
+    <h4>Declined Requests</h4>
+    <hr>
+      <% @user.bookings.each do |booking| %>
+        <% if booking.status == "Declined" %>
+          <h5><%= booking.island.title %></h5>
+          <p>Status: <%= booking.status %></p>
+          <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
+          <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
+          <% if booking.review %>
+            <p>Rating: <%= booking.review.rating %>/5.0</p>
+            <p>Comment: <%= booking.review.content %></p>
+            <%= link_to 'Edit', edit_booking_review_path(booking, booking.review) %>
+            <%= link_to 'Delete', review_path(booking.review), data: { turbo_method: :delete, turbo_confirm: 'Do you want to confirm this choice?' } %>
+          <% end %>
+          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island) %>
+          <hr>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= link_to 'See all 🏝️slands', islands_path , class:"links btn btn-light text-dark w-25 mx-5 my-3" %>
+    <%= link_to 'Go to 🏠 page', root_path , class:"links btn btn-light text-dark w-25 mx-5 my-3" %>
+  </div>
+</div>

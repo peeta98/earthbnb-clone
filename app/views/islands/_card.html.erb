@@ -12,16 +12,18 @@
         <% end %>
       <% end %>
     </div>
-    <div class="mx-3">
+    <div class="text-center ms-3">
       <h3><%= island.title %></h3>
     </div>
     <hr>
   </div>
-  <div class="card-trip-infos">
+  <div class="card-trip-infos gy-0" id="card-info-index">
     <div>
       <p><strong>Location:</strong> <%= island.address %></p>
       <p><strong>About:</strong> <%= island.description %></p>
     </div>
+  </div>
+  <div id="card-info-index">
     <h2 class="card-trip-pricing"><%= number_to_currency(island.price_per_night, precision: 0) %></h2>
   </div>
 </div>

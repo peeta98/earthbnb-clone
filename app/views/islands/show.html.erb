@@ -4,9 +4,9 @@
   <%= render 'islands/visitor_navbar' %>
 <% end %>
 
-<div class="container gx-0 ml-0 my-4">
+<div class="container gx-0 mt-4">
   <div class="row align-items-start">
-    <div class="col-12 col-lg-9 gx-0 mr-3 py-4" id="show">
+    <div class="col-12 col-lg-9 gx-0 mr-3 pt-3 pb-0" id="show">
       <h3 class="text-center"><%= @island.title %></h3>
       <div id="carouselShow" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner px-3">
@@ -35,10 +35,11 @@
           <p><strong>Location:</strong> <%= @island.address %></p><br>
           <p><strong>About:</strong> <%= @island.description %></p>
           <p class="card-trip-pricing"> <strong>Price:</strong><%= number_to_currency(@island.price_per_night, precision: 0) %> /night</p>
+          <p> <strong>Owner:</strong> Mr.<%= @island.user.username %></p>
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-3 forms flex-column gx-0">
+    <div class="col-12 col-lg-3 forms gx-0">
       <div id="booking-form">
         <h3>Request Booking</h3>
         <%= simple_form_for [@island, @booking ] do |f| %>
@@ -55,26 +56,12 @@
                 <%= f.input :content %>
                 <%= f.submit 'Submit', class: 'btn btn-primary w-100' %>
               <% end %>
-          </div>
-        <% end %>
-      <%= link_to "Show all Islands", islands_path, class:"btn btn-secondary w-100" %>
+          <% end %>
+          <%= link_to "Show all Islands", islands_path, class:"btn btn-secondary w-100" %>
+        </div>
     </div>
   </div>
 </div>
-
-<% if @island.user == current_user %>
-  <%= link_to "Delete",
-    island_path(@island),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-  <% @island.bookings.each do |booking| %>
-    <p><%= link_to "Edit booking", edit_island_booking_path(@island, booking) %></p>
-    <p>Starts at: <%= booking.start_date %></p>
-    <p>Ends in: <%= booking.end_date %></p>
-    <p><%= link_to "Accept booking", accept_island_booking_path(@island, booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure you want to accept this bookings?" }  %></p>
-    <p><%= booking.status %></p>
-  <% end %>
-<% end %>
 
 <style>
   .custom-card {
@@ -82,6 +69,7 @@
   }
 </style>
 
+<!-- It only shows 1 Review per Booking because of the associations made in the bookings model -->
 <div>
   <h3 class="text-center">Reviews of the Island</h3>
   <div class="row d-flex justify-content-center">
