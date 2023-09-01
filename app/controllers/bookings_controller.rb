@@ -30,13 +30,15 @@ class BookingsController < ApplicationController
   def decline
     @booking = Booking.find(params[:id])
     @booking.decline!
-    redirect_to @booking.island, notice: 'Booking declined.'
+    
+    redirect_to user_path(current_user), notice: 'Booking declined.'
   end
 
   def accept
+  
     @booking = Booking.find(params[:id])
     @booking.status = "Accepted"
-    redirect_to @booking.island, notice: "Booking accepted!" if @booking.save
+    redirect_to user_path(current_user), notice: "Booking accepted!"
   end
 
   private
