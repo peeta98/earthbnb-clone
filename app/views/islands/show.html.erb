@@ -34,7 +34,7 @@
         <div>
           <p><strong>Location:</strong> <%= @island.address %></p><br>
           <p><strong>About:</strong> <%= @island.description %></p>
-          <p class="card-trip-pricing"> <strong>Price:</strong><%= number_to_currency(@island.price_per_night, precision: 0) %> /night</p>
+          <p class="card-trip-pricing"> <strong>Price: </strong><%= number_to_currency(@island.price_per_night, precision: 0) %> /night</p>
           <p> <strong>Owner:</strong> Mr.<%= @island.user.username %></p>
         </div>
       </div>
@@ -80,8 +80,8 @@
 <!-- It only shows 1 Review per Booking because of the associations made in the bookings model -->
 <div class="container">
   <h3 class="text-center mt-5" id="text">Reviews of the Island</h3>
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-10">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-9">
       <% @island.bookings.each do |booking| %>
         <% if booking.review %>
           <div class="card custom-card ">

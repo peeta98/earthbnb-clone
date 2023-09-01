@@ -1,8 +1,14 @@
-<h1>Edit Booking</h1>
-<%= simple_form_for [@island, @booking] do |f| %>
-<%= f.input :start_date, as: :string, input_html: { data: { controller: 'datepicker' } } %>
-<%= f.input :end_date, as: :string,  input_html: { data: { controller: 'datepicker' } } %>
-<%= f.submit 'Edit Booking', class: 'btn btn-primary' %>
-<% end %>
+<div class="container min-vh-100" id="authentication">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-4">
+      <h1>Edit Booking</h1>
+      <%= simple_form_for [@island, @booking] do |f| %>
+      <%= f.input :start_date, as: :string, input_html: { data: { controller: 'datepicker' } } %>
+      <%= f.input :end_date, as: :string,  input_html: { data: { controller: 'datepicker' } } %>
+      <%= f.submit 'Edit Booking', class: 'btn btn-primary w-100' %>
+      <% end %>
 
-<%= link_to "Go back", user_path(current_user) %>
+      <%= link_to "⬅️ Go Back", user_path(current_user), class:"text-decoration-none py-3" %>
+    </div>
+  </div>
+</div>

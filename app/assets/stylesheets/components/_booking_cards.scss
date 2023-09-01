@@ -29,7 +29,7 @@
 
 .island-card-container{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 
   .booking-card{
     margin-left: 1rem;
@@ -73,6 +73,9 @@
   background-color: white;
   padding-bottom: 0;
   padding-top: 1rem;
+  .btn{
+    border-radius: 4px;
+  }
 }
 
 .stay-island-container{
@@ -101,7 +104,6 @@
   margin-top: 1rem;
   justify-content: space-around;
   text-align: center;
-  width: 70%;
   height: 60px;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
