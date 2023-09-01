@@ -35,11 +35,11 @@
                   <%= link_to 'Accept', accept_island_booking_path(booking.island, booking),class:"btn btn-success w-50 me-1", data: { turbo_method: :patch, turbo_confirm: 'Do you want to accept request?' } %>
                   <%= link_to 'Decline',  decline_island_booking_path(booking.island, booking),class:"btn btn-danger w-50 ms-1", data: { turbo_method: :patch, turbo_confirm: 'Do you want to decline request?' } %>
                 <% elsif booking.status == "Accepted" %>
-                  <div class="text-center bg-light text-success w-100">
+                  <div class="text-center bg-white text-success w-100">
                     Accepted ✅
                   </div>
                 <% else %>
-                  <div class="text-center bg-light text-danger w-100">
+                  <div class="text-center bg-white text-danger w-100">
                     Declined ❌
                   </div>
                 <% end %>
@@ -95,7 +95,7 @@
           <p>Status: <%= booking.status %></p>
           <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
           <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
-          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island),class:"btn btn-primary mb-2" %>
+          <%= link_to "Edit this booking",  edit_island_booking_path(booking.island, booking),class:"btn btn-primary mb-2" %>
           <% if booking.review %>
             <p>Rating: <%= booking.review.rating %>/5.0</p>
             <p>Comment: <%= booking.review.content %></p>
@@ -117,8 +117,6 @@
           <p>Status: <%= booking.status %></p>
           <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
           <p>End Date: <%= booking.end_date.strftime('%A %b %e') %></p>
-          <%= link_to "Edit this booking",  edit_island_booking_path(booking, booking.island),class:"btn btn-primary mb-2" %>
-          <p>-----------</p>
           <% if booking.review %>
             <p>Rating: <%= booking.review.rating %>/5.0</p>
             <p>Comment: <%= booking.review.content %></p>
