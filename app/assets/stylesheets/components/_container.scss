@@ -1,4 +1,6 @@
 #authentication{
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   margin-top: 1rem;
   .col-lg-4{
     background-color: white;
@@ -33,6 +35,8 @@
   margin-right: auto;
 
   h3{
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
     font-size: 50px;
     font-weight: bold;
     margin-left: 1rem;
@@ -54,11 +58,17 @@
 }
 
 .forms{
+  // position: fixed;
+  // top: 72px;
+  // right: 1.5rem;
   background-color: none;
   width: 28%;
   height: 60%;
   padding: 0;
   margin-top: 0;
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto Mono', monospace;
+  
 
   #booking-form{
     padding: 1rem;

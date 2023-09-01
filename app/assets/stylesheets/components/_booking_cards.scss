@@ -1,0 +1,111 @@
+.booking-cards-container{
+  justify-content: center;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  background-color: white;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+
+  h2 , h3, h4{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+  }
+  .island-container{
+    padding: 0;
+    padding-bottom: 100px;
+    height: auto;
+
+  }
+}
+
+.title{
+  h4{
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+  }
+}
+
+.island-card-container{
+  display: flex;
+  justify-content: space-between;
+
+  .booking-card{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
+
+  .btn{
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  .text-center{
+    display: grid;
+    align-items: center;
+    border-radius: 4px;
+    height: 40px;
+    font-weight: bolder;
+  }
+}
+
+.user-info-container{
+  h2{
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+  }
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  background-color: white;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.stay-island{
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  background-color: white;
+  padding-bottom: 0;
+  padding-top: 1rem;
+}
+
+.stay-island-container{
+  margin-top: 1rem;
+  padding: 0;
+  h4{
+    text-align: center;
+  }
+  h5, h4{
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+  }
+}
+
+.links{
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+#title{
+  h3{
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+  }
+  margin: auto;
+  margin-top: 1rem;
+  justify-content: space-around;
+  text-align: center;
+  width: 70%;
+  height: 60px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  background-color: white;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}

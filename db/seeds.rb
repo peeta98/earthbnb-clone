@@ -28,7 +28,7 @@ kevin = User.create!(username: "KevinAjax", email: "kevin99@gmail.com", password
 puts "User 5 created!"
 
 # ----- Seeding istances of Island -----
-puts "Creating 5 islands..."
+puts "Creating 7 islands..."
 terceira = Island.create!(
   title: "Terceira",
   address: "Terceira, Azores, Portugal",
@@ -72,12 +72,32 @@ hawaii = Island.create!(
   title: "Hawaii",
   address: "Hawaii, United States, America",
   description: "Hawaii is known for its beautiful beaches, its laid-back lifestyle,
-  and its delicious food. From traditional Hawaiian dishes like poi and laulau to modern favorites
-  like poke and Kalua pig, you are in for a treat after exploring the mountains or surfing the waves.",
+  and its delicious food. You are in for a treat after exploring the mountains or surfing the waves.",
   price_per_night: 60_000,
   user: gonçalo
 )
 puts "Island 5 created!"
+
+corvo = Island.create!(
+  title: "Corvo",
+  address: "Corvo, Azores, Portugal",
+  description: "Together with Flores, a few kilometers away, Corvo is considered a World Biosphere Reserve by UNESCO.
+  Corvo is known as one of the best places in the world for bird watching and hiking.",
+  price_per_night: 5_000,
+  user: pedro
+)
+puts "Island 6 created!"
+
+bora = Island.create!(
+  title: "Bora Bora",
+  address: "Bora Bora, Leeward Islands, French Polynesia",
+  description: "What is so beautiful about Bora Bora?
+  The island of Bora Bora is a honeymooner's paradise. The ultimate setting for romance
+  is largely mainly due to theiconic beauty of Mount Otemanu.",
+  price_per_night: 65_000,
+  user: kevin
+)
+puts "Island 7 created!"
 
 # ----- Attaching some photos to the Islands! -----
 puts "Attaching photos to Terceira..."
@@ -160,6 +180,38 @@ hawaii.photos.attach(io: file3, filename: "hawaii3.jpg", content_type: "image/jp
 puts "Photo 3 attached!"
 hawaii.save!
 
+puts "Attaching photos to Corvo..."
+url1 = Cloudinary::Utils.cloudinary_url("Corvo2_kzjtgb")
+url2 = Cloudinary::Utils.cloudinary_url("Corvo1_e2unbo")
+url3 = Cloudinary::Utils.cloudinary_url("Corvo3_hyirsd")
+
+file = URI.open(url1)
+corvo.photos.attach(io: file, filename: "corvo.jpg", content_type: "image/jpg")
+puts "Photo 1 attached!"
+file2 = URI.open(url2)
+corvo.photos.attach(io: file2, filename: "corvo2.jpg", content_type: "image/jpg")
+puts "Photo 2 attached!"
+file3 = URI.open(url3)
+corvo.photos.attach(io: file3, filename: "corvo3.jpg", content_type: "image/jpg")
+puts "Photo 3 attached!"
+corvo.save!
+
+puts "Attaching photos to Bora Bora..."
+url1 = Cloudinary::Utils.cloudinary_url("Bora2_exxqsp")
+url2 = Cloudinary::Utils.cloudinary_url("Bora3_ag2nox")
+url3 = Cloudinary::Utils.cloudinary_url("Bora1_pnnn67")
+
+file = URI.open(url1)
+bora.photos.attach(io: file, filename: "bora.jpg", content_type: "image/jpg")
+puts "Photo 1 attached!"
+file2 = URI.open(url2)
+bora.photos.attach(io: file2, filename: "bora2.jpg", content_type: "image/jpg")
+puts "Photo 2 attached!"
+file3 = URI.open(url3)
+bora.photos.attach(io: file3, filename: "bora3.jpg", content_type: "image/jpg")
+puts "Photo 3 attached!"
+bora.save!
+
 # ----- Seeding instances of Booking -----
 puts "Creating 5 bookings..."
 # The user associated with the booking is the BUYER!
@@ -173,6 +225,10 @@ australia_booking = Booking.create!(start_date: "23/09/2023", end_date: "26/09/2
 puts "Booking 4 created!"
 hawaii_booking = Booking.create!(start_date: "30/08/2023", end_date: "2/09/2023", user: kevin, island: hawaii, status: "Accepted")
 puts "Booking 5 created!"
+corvo_booking = Booking.create!(start_date: "27/08/2023", end_date: "29/08/2023", user: klevion, island: corvo, status: "Accepted")
+puts "Booking 6 created!"
+bora_booking = Booking.create!(start_date: "30/08/2023", end_date: "31/08/2023", user: pedro, island: bora, status: "Accepted")
+puts "Booking 7 created!"
 
 # ----- Seeding instances of Review -----
 puts "Creating 5 reviews..."
@@ -206,4 +262,16 @@ hawaii_review = Review.create!(
   booking: hawaii_booking
 )
 puts "Review 5 created!"
+corvo_review = Review.create!(
+  rating: 1.2,
+  content: "Such a tiny island... Visited everything in 15 minutes LOL",
+  booking: corvo_booking
+)
+puts "Review 6 created!"
+bora_review = Review.create!(
+  rating: 3.2,
+  content: "Nothing special to be very honest, overhyped",
+  booking: bora_booking
+)
+puts "Review 7 created!"
 puts "All seeds created successfully!"
