@@ -65,23 +65,31 @@
 
 <style>
   .custom-card {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    max-height: 250px;
+  }
+  #text {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
   }
 </style>
 
 <!-- It only shows 1 Review per Booking because of the associations made in the bookings model -->
-<div>
-  <h3 class="text-center">Reviews of the Island</h3>
+<div class="container">
+  <h3 class="text-center mt-5" id="text">Reviews of the Island</h3>
   <div class="row d-flex justify-content-center">
     <div class="col-md-10">
       <% @island.bookings.each do |booking| %>
         <% if booking.review %>
-          <div class="card custom-card mb-20">
+          <div class="card custom-card ">
             <div class="card-body m-3">
               <div class="row">
                 <div class="col-lg-4 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
                   <img src="https://www.elevenforum.com/proxy.php?image=https%3A%2F%2Fi.hizliresim.com%2Fqde7y7b.png&hash=8840a7826b2be91b53ca4f36d7726152"
-                    class="rounded-circle img-fluid shadow-1" width="200" height="200" />
+                    class="rounded-circle img-fluid shadow-1" width="150" height="150" />
                 </div>
                 <div class="col-lg-8">
                   <p class="fw-bold lead mb-4"><%= booking.user.username %></p>
