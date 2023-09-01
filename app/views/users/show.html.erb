@@ -19,9 +19,9 @@
         <div class="title">
           <h4><%= island.title %></h4>
         </div>
-        <div class="island-card-container">
+        <div class="island-card-container row">
           <% island.bookings.each do |booking| %>
-            <div class="booking-card">
+            <div class="booking-card col-12 col-lg-3 mb-1">
 
                 <p>Client: <%= booking.user.username %></p>
                 <p>Start Date: <%= booking.start_date.strftime('%A %b %e') %></p>
@@ -36,15 +36,15 @@
 
               <div class="d-flex">
                 <% if booking.status == "Pending" %>
-                  <%= link_to 'Accept', accept_island_booking_path(booking),class:"btn btn-success w-50 me-1", data: { turbo_method: :patch, turbo_confirm: 'Do you want to accept request?' } %>
-                  <%= link_to 'Decline',  decline_island_booking_path(booking),class:"btn btn-danger w-50 ms-1", data: { turbo_method: :patch, turbo_confirm: 'Do you want to decline request?' } %>
+                  <%= link_to 'Accept', accept_island_booking_path(booking.island, booking),class:"btn btn-success w-50 me-1", data: { turbo_method: :patch, turbo_confirm: 'Do you want to accept request?' } %>
+                  <%= link_to 'Decline',  decline_island_booking_path(booking.island, booking),class:"btn btn-danger w-50 ms-1", data: { turbo_method: :patch, turbo_confirm: 'Do you want to decline request?' } %>
                 <% elsif booking.status == "Accepted" %>
                   <div class="text-center bg-light text-success w-100">
                     Accepted ✅
                   </div>
                 <% else %>
                   <div class="text-center bg-light text-danger w-100">
-                    Declined ❌X
+                    Declined ❌
                   </div>
                 <% end %>
               </div>
